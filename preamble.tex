@@ -1,0 +1,32 @@
+\newcommand*{\FF}{\mathbb{F}}
+
+\newcommand*{\FFp}[1][]{%
+	\ifthenelse{\equal{#1}{}}{%
+		\FF_p%
+	}{%
+		\FF_{p^{#1}}%
+	}%
+}
+\newcommand*{\FFpm}{\FFp[m]}
+\newcommand*{\FFpn}{\FFp[n]}
+
+\newenvironment{solution}{%
+	\begin{proof}
+}{%
+	\end{proof}
+}
+
+\newcommand*{\opRing}[2]{%
+	\mathbin{\mathop{#1}\limits_{#2}}
+}
+
+\providecommand*{\plusA}{\opRing{+}{A}}
+\providecommand*{\plusB}{\opRing{+}{B}}
+\providecommand*{\cdotA}{\opRing{\cdot}{A}}
+\renewcommand*{\cdotB}{\opRing{\cdot}{B}}
+
+\newcommand*{\id}{\mathop{\mathrm{id}}\nolimits}
+\newcommand*{\im}{\mathop{\mathrm{im}}\nolimits}
+\newcommand*{\ev}{\mathop{\mathrm{ev}}\nolimits}
+
+\newcommand*{\kk}{\mathbb{k}}
