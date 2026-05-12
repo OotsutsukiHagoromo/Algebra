@@ -1,0 +1,69 @@
+\section{Задча 5~b}
+
+Пусть $f_k(x) := x^{p^k} - x \in \FFp{}[x]$. Нам предлагается найти $f_n(x) \bmod f_m(x)$. Это то же самое, что найти $[f_n(x)]$ в~$\FFp{}[x]/(f_m)$.
+
+Есть факторкольцо --- посмотрим на гомоморфизм факторизации
+\[
+	\pi
+	\colon
+	\FFp{}[x]
+	\to
+	\frac{\FFp{}[x]}{(f_m)}
+	\colon
+	x \mapsto [x] =: \theta
+	.
+\]
+Как и выше, $\FFp{}[x]/(f_m)$ можно воспринимать как кольцо~$\FFp{}[\theta]$, где для~$\theta$ выполняется равенство~$f_m(\theta) = 0$. Найдём $[f_n(x)] = f_n(\theta)$:
+\[
+	\pi\bigl( f_n \bigr) =
+	[f_n(x)] =
+	f_n([x]) =
+	f_n(\theta) =
+	\theta^{p^n} - \theta
+\]
+при условии~$\theta^{p^m} - \theta = 0$ или, что то же самое, $\theta^{p^m} = \theta$. Чтобы воспользоваться этим равенством, в выражении~$f_n(\theta) = \theta^{p^n} - \theta$ надо получить элемент~$\theta^{p^m}$. Это просто сделать: если $n > m$, то существуют $k \in \NN$ и $r \in [0, m) \cap \NN$, такие, что
+\[
+	n = km + r
+\]
+(деление с остатком).
+
+Поэтому
+\begin{align*}
+	f_n(\theta)
+	&=
+	\theta^{p^n} - \theta
+	=
+	\theta^{p^{km+r}} - \theta
+	=
+	\theta^{p^{km}p^r} - \theta
+	=
+	\bigl( \theta^{p^{km}} \bigr)^{p^r} - \theta
+	\nlinea{=}
+	\bigl(
+		\theta^{
+			\overbrace{
+				p^{m} \cdots p^m
+			}^{\text{$k$ раз}}
+		}
+	\bigr)^{p^r} - \theta
+	=
+	\theta^{p^r} - \theta,
+\end{align*}
+так как $\theta^{p^m p^m} = \bigl( \theta^{p^m} \bigr)^{p^m} = \theta^{p^m} = \theta$.
+
+А что такое~$r$? Это $r = n \bmod m$.
+
+Итак,
+\[
+	\bigl[
+		x^{p^n} - x
+	\bigr]
+	=
+	[x]^{p^r} - [x]
+	=
+	\bigl[
+		x^{p^r} - x
+	\bigr]
+	.
+\]
+Но $x^{p^r} - x$ --- это многочлен степени~$p^r$, меньшей, чем~$\deg{f_m} = p^m$, так что $x^{p^r} - x$ --- это искомый остаток.
