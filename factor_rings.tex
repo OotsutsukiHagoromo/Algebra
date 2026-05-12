@@ -267,7 +267,7 @@
 	Для любого гомоморфизма колец $\phi \colon A \to B$ ядро $\ker{\phi}$ --- это подкольцо в~$A$, а образ $\im{\phi}$ --- это подкольцо в~$B$
 	\label{<+label+>}
 \end{proposition}
-\begin{proof}
+\begin{proofm}
 	Покажем, что $\ker{\phi}$ --- подкольцо в~$A$. Для этого покажем, что $\forall x,\ y \in \ker{\phi}$ выполняются условия $x \cdot y \in \ker{\phi}$.
 	
 	Пусть $x,\ y \in \ker{\phi}$. Это значит, что $\phi(x) = 1_B$, $\phi(y) = 1_B$. Тогда
@@ -287,8 +287,9 @@
 	\[
 		\phi(xy) = \phi(x) \phi(y) = pq
 		.
+		\proofmark
 	\]
-\end{proof}
+\end{proofm}
 
 \begin{theorem}[о гомоморфизме]
 	Она повторяет теорему о гомоморфизме групп%
@@ -486,7 +487,7 @@
 	на двучлен $x - \alpha$ --- это константа, равная значению~$f(\alpha)$ многочлена~$f$ при $x = \alpha$.
 	\label{<+label+>}
 \end{lemma}
-\begin{proof}
+\begin{proofm}
 	Поделим $f(x)$ на $x - \alpha$ с остатком:
 	\[
 		f(x) = (x - \alpha) \cdot g(x) + r(x)
@@ -499,8 +500,9 @@
 		f(\alpha) &= (\alpha - \alpha) \cdot g(\alpha) + r,
 		\\
 		f(\alpha) &= r.
+		\proofmark
 	\end{align*}
-\end{proof}
+\end{proofm}
 \begin{remark}
 	Вычисление остатка от деления $f(x)$ на $x - \alpha$ --- значительно более быстрый способ вычисления~$f(\alpha)$, чем подстановка напрямую.
 	\label{<+label+>}
@@ -519,7 +521,7 @@
 	Пусть $K$ --- целостное кольцо, а $f$ имеет различные корни $(\alpha_1, \dots, \alpha_p)$. Тогда $f$ делится на произведение $\prod\limits_{i = 1}^{p} (x - \alpha_i)$.
 	\label{<+label+>}
 \end{lemma}
-\begin{proof}
+\begin{proofm}
 	Так как в~$K$ нет делителей нуля и $\alpha_i - \alpha_j \neq 0$ при $i \neq j$, применим предыдущую лемму: $\alpha_1$ --- корень~$f$, так что существует~$q(x) \in K[x]$, такой, что
 	\[
 		f(x) = q(x) \cdot (x - \alpha_1).
@@ -527,8 +529,9 @@
 	Применяя $\ev_{\alpha_i}$ к этому равенству, получаем, что $(\alpha_2, \dots, \alpha_p)$ --- корни~$q(x)$. Остаётся применить индукцию и получить, что
 	\[
 		f(x) = \prod_{i = 1}^{p} (x - \alpha_p).
+		\proofmark
 	\]
-\end{proof}
+\end{proofm}
 
 \begin{corrolary}
 	Если у $f$ есть $p$ различных корней, то $\deg{f} \geq p$.
@@ -576,7 +579,7 @@
 	\]
 	\label{<+label+>}
 \end{lemma}
-\begin{proof}
+\begin{proofm}
 	Если $\alpha$ --- кратный корень~$f$, то
 	\[
 		f(x) = (x - \alpha)^2\,g(x),
@@ -597,8 +600,9 @@
 		f'(x) &= h(x) + (x - \alpha)\,h'(x)
 		\\
 		f'(\alpha) &= h(\alpha) \neq 0.
+		\proofmark
 	\end{align*}
-\end{proof}
+\end{proofm}
 
 \begin{definition}
 	Многочлен $f \in \kk[x]$ называется \emph{сепарабельным}, если $\gcd{f, f'} = 1$. Это означает, что $f$ не имеет кратных корней ни в каком кольце $K \supset \kk$.
@@ -781,6 +785,7 @@
 				\item Tеперь пусть $f$ неприводим. Рассмотрим поле $\LL := \kk[x]/(f)$. Оно содержит~$\kk$ в качестве классов констант, и~$f$ делится в~$\LL[x]$ на~$x - \theta$, где $\theta = x \bmod f$: $f(x) = (x - \theta) q(x)$ в~$\LL[x]$, причём $\deg{q} = n - 1$, и по индукции~$q$ раскладывается на линейные множители над некоторым полем~$\FF \supset \LL$.
 			\end{itemize}
 	\end{enumerate}
+	Теорема доказана.
 \end{proof}
 
 
