@@ -1,6 +1,127 @@
-\section{Факторкольца и иже с ними}
+\part{Факторкольца и иже с ними}
 
-\subsection{Кольца}
+\section{Кольца}
+
+\subsection{Аксиомы поля}
+
+\begin{definition}
+	\tdef{Поле} --- это тройка $(F, +, \cdot)$, состоящая из множества~$F$ и операций
+	\begin{align*}
+		+ \colon
+		F \times F &\to F
+		,
+		\\
+		\cdot \colon
+		F \times F &\to F
+		,
+	\end{align*}
+	удовлетворяющих следующим свойствам: для любых~$a$, $b$, $c \in F$ выполнено
+	\[
+		\begin{array}{l@{}r@{{}={}}ll}
+			\multicols{4}{c}{%
+				\text{Свойства сложения:}
+			}
+			\\
+			\forall a,\ b,\ c \in F
+			\holds {}
+			&
+			(a + b) + c & a + (b + c)
+			&
+			\text{(ассоциативность);}
+			\\
+			\exists 0 \in F
+			\suchthat {}
+			&
+			a + 0 & a
+			&
+			\text{(нейтральный по сложению);}
+			\\
+			\forall a \in F\ 
+			\exists \ta \in F\ 
+			\suchthat
+			&
+			a + \ta & 0
+			&
+			\text{(существование обратного по сложению);}
+			\\
+			\forall a,\ b \in F
+			\holds
+			&
+			a + b = b + a
+			&
+			\text{(коммутативность);}
+			\\
+			\multicols{4}{c}{%
+				\text{Свойства умножения:}
+			}
+			\\
+			\forall a,\ b,\ c \in F
+			\holds {}
+			&
+			(a \cdot b) \cdot c & a \cdot (b \cdot c)
+			&
+			\text{(ассоциативность);}
+			\\
+			\exists 1 \in F
+			\suchthat {}
+			&
+			a \cdot 1 & a
+			&
+			\text{(нейтральный по умножению);}
+			\\
+			\forall a \in F\ 
+			\exists \ha \in F\ 
+			\suchthat
+			&
+			a \cdot \ha & 1
+			&
+			\text{(существование обратного по умножению);}
+			\\
+			\forall a,\ b \in F
+			\holds
+			&
+			a \cdot b = b \cdot a
+			&
+			\text{(коммутативность);}
+			\\
+			\multicols{4}{c}{%
+				\text{Связь сложения и умножения:}
+			}
+			\\
+			\forall a,\ b,\ c \in F
+			\holds
+			&
+			a \cdot (b + c) &
+			a \cdot b + a \cdot c
+			&
+			\text{(дистрибутивность);}
+			\\
+			&
+			\multicols{2}{c}{0 \neq 1}
+			&
+			\text{(невырожденность).}
+			\label{<+label+>}
+		\end{align}
+	\]
+	\label{<+label+>}
+\end{definition}<++>
+
+\subsection{Определения}
+\begin{definition}
+	\tdef{Кольцо} --- это тройка $(K, +, \cdot)$, включающая в себя множество~$K$ с двумя операциями
+	\begin{align*}
+		+ \colon
+		K \times K &\to K
+		,
+		\\
+		\cdot \colon
+		K \times K &\to K
+		,
+	\end{align*}
+	причём $(K, +)$ --- группа по сложению.
+	\label{<+label+>}
+\end{definition}
+
 
 \begin{definition}
 	Гомоморфизм колец $\phi \colon A \to B$ --- это отображение подлежащих множеств, которое переводит сложение в сложение, а умножение на число --- в умножение на число: для любых $a'$, $a'' \in A$ выполняется
@@ -790,3 +911,10 @@
 
 
 
+
+\subsection{Поля}
+
+\begin{definition}
+	Кольцо~$F$ называется \emph{полем}, если всякий ненулевой элемент в нём обратим.
+	\label{<+label+>}
+\end{definition}<++>
