@@ -15,10 +15,11 @@
 		F \times F &\to F
 		,
 	\end{align*}
-	удовлетворяющих следующим свойствам: для любых~$a$, $b$, $c \in F$ выполнено
+	удовлетворяющих следующим свойствам.
+	\refstepcounter{equation}%
 	\[
-		\begin{array}{l@{}r@{{}={}}ll}
-			\multicols{4}{c}{%
+		\begin{array}{r@{}r@{{}={}}lll}
+			\multicolumn{4}{c}{%
 				\text{Свойства сложения:}
 			}
 			\\
@@ -28,30 +29,38 @@
 			(a + b) + c & a + (b + c)
 			&
 			\text{(ассоциативность);}
+			&
+			(\arabic{equation}.1.1)
 			\\
 			\exists 0 \in F
 			\suchthat {}
 			&
 			a + 0 & a
 			&
-			\text{(нейтральный по сложению);}
+			\text{(нейтральный);}
+			&
+			(\arabic{equation}.1.2)
 			\\
 			\forall a \in F\ 
 			\exists \ta \in F\ 
-			\suchthat
+			\suchthat {}
 			&
 			a + \ta & 0
 			&
-			\text{(существование обратного по сложению);}
+			\text{(обратный);}
+			&
+			(\arabic{equation}.1.3)
 			\\
 			\forall a,\ b \in F
-			\holds
+			\holds {}
 			&
-			a + b = b + a
+			a + b & b + a
 			&
 			\text{(коммутативность);}
-			\\
-			\multicols{4}{c}{%
+			&
+			(\arabic{equation}.1.4)
+			\\\\
+			\multicolumn{4}{c}{%
 				\text{Свойства умножения:}
 			}
 			\\
@@ -61,50 +70,75 @@
 			(a \cdot b) \cdot c & a \cdot (b \cdot c)
 			&
 			\text{(ассоциативность);}
+			&
+			(\arabic{equation}.2.1)
 			\\
 			\exists 1 \in F
 			\suchthat {}
 			&
 			a \cdot 1 & a
 			&
-			\text{(нейтральный по умножению);}
+			\text{(нейтральный);}
+			&
+			(\arabic{equation}.2.2)
 			\\
-			\forall a \in F\ 
-			\exists \ha \in F\ 
-			\suchthat
+			\forall a \in F^\times \ 
+			\exists \ha \in F^\times \ 
+			\suchthat {}
 			&
 			a \cdot \ha & 1
 			&
-			\text{(существование обратного по умножению);}
+			\text{(обратный);}
+			&
+			(\arabic{equation}.2.3)
 			\\
 			\forall a,\ b \in F
-			\holds
+			\holds {}
 			&
-			a \cdot b = b \cdot a
+			a \cdot b & b \cdot a
 			&
 			\text{(коммутативность);}
-			\\
-			\multicols{4}{c}{%
+			&
+			(\arabic{equation}.2.4)
+			\\\\
+			\multicolumn{4}{c}{%
 				\text{Связь сложения и умножения:}
 			}
 			\\
 			\forall a,\ b,\ c \in F
-			\holds
+			\holds {}
 			&
 			a \cdot (b + c) &
 			a \cdot b + a \cdot c
 			&
 			\text{(дистрибутивность);}
+			&
+			(\arabic{equation}.3.1)
 			\\
 			&
-			\multicols{2}{c}{0 \neq 1}
+			\multicolumn{2}{c}{\mkern -7.9mu 0 \neq 1}
 			&
 			\text{(невырожденность).}
+			&
+			(\arabic{equation}.3.2)
 			\label{<+label+>}
-		\end{align}
+		\end{array}
 	\]
 	\label{<+label+>}
-\end{definition}<++>
+\end{definition}
+
+Свойства (\arabic{equation}.1.1)--(\arabic{equation}.1.4) --- это определение группы $(F, +)$ по сложению.
+
+Свойства (\arabic{equation}.2.1)--(\arabic{equation}.2.4) --- это \emph{почти} определение группы $(F, \cdot)$ по умножению, за исключением того, что обратный по умножению определён только для ненулевого элемента.
+
+Множество $F^\times := F \setminus \set*{0}$ называется \emph{мультипликативной подгруппой} поля~$F$, так как если сузить операции $+$ и $\cdot$ на $F^\times \times F^\times$, то свойства~(\arabic{equation}.2.1)--(\arabic{equation}.2.4) дадут определение группы~$(F^\times, \cdot)$.
+
+Если $0 = 1$ (в смысле равенства нейтральных элементов по сложению и умножению), то множество~$F$ тоже называется полем --- но это будет поле из одного элемента.
+
+\subsection{Аксиомы кольца}
+
+
+
 
 \subsection{Определения}
 \begin{definition}
