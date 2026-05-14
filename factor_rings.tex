@@ -1227,6 +1227,120 @@
 	Теорема доказана.
 \end{proof}
 
+\section{Расширения полей}
+
+Пусть $\KK$ и~$\FF$ --- поля.
+
+\begin{definition}
+	Поле~$\KK$ называется \tdef{расширением} поля~$\FF$, если $\KK \supset \FF$.
+\end{definition}
+
+\begin{proposition}
+	Если~$\KK \supset \FF$, то $\KK$ можно представлять себе как векторное пространство над~$\FF$.
+\end{proposition}
+
+\begin{definition}
+	Если~$\KK \supset \FF$, то размерность~$\dim_{\FF}{\KK}$ поля~$\KK$ как векторного пространства над~$\FF$ называется \tdef{степенью} расширения и обозначается~$[\KK : \FF]$:
+	\[
+		[\KK : \FF] := \dim_{\KK}{\FF}
+		.
+	\]
+\end{definition}
+
+\begin{example}
+	Поле $\CC := \RR[t]/(t^2 + 1)$ --- это векторное поле над~$\RR$ размерности~$\dim_{\RR}{\CC} = [\CC : \RR] = 2$.
+\end{example}
+
+\begin{definition}
+	Последовательность
+	\[
+		\KK \supset \LL \supset \FF
+	\]
+	расширений поля~$\FF$ называется \tdef{башней расширений}.
+\end{definition}
+
+\begin{lemma}
+	Если $\KK \supset \LL \supset \FF$ --- башня расширений, то
+	\[
+		[\KK : \LL]
+		\cdot
+		[\LL : \FF]
+		=
+		[\KK : \FF]
+		.
+	\]
+\end{lemma}
+\begin{proof}
+	Требуется доказать среднее равенство в цепочке
+	\[
+		[\KK : \LL] \cdot [\LL : \FF] =
+		\dim_{\LL}{\KK} \cdot \dim_{\FF}{\LL} =
+		\dim_{\FF}{\KK}
+		=
+		[\KK : \FF]
+		.
+	\]
+	Чтобы рассуждать о размерности, нужен базис. Пусть
+	\begin{align*}
+		\bu &:= (u_1, \dots, u_m) \subset \KK,
+		\\
+		\bv &:= (v_1, \dots, v_n) \subset \LL
+	\end{align*}
+	--- базисы $\KK$ как векторного пространства над~$\LL$ и~$\LL$ как векторного пространства над~$\FF$. Тогда
+	\[
+		\bu \otimes \bv :=
+		\set{u_i \otimes v_j}{%
+			\begin{gathered}
+				1 \leq i \leq m,
+				\\
+				1 \leq j \leq n
+			\end{gathered}
+		}
+	\]
+	--- базис $\KK$ над~$\FF$, так как если
+	\[
+		k = a_1 u_1 + \dots + a_m u_m =
+		\sum_{i = 1}^m
+			a_i u_i
+		,
+	\]
+	где $a_i \in \LL$ --- разложение~$k \in \KK$ над~$\LL$, а элемент~$a_i \in \LL$ раскладывается над~$\FF$ в виде
+	\[
+		a_i =
+		b_{i1} v_1 + \dots + b_{in} v_n =
+		\sum_{j = 1}^n
+			b_{ij} v_j
+		,
+	\]
+	где $b_{ij} \in \FF$,
+	% а верхние индексы не обозначают степени,
+	то
+	\[
+		k =
+		\sum_{i = 1}^m
+			a_i u_i
+		=
+		\sum_{i = 1}^m
+		\left( 
+			\sum_{j = 1}^n
+				b_{ij} v_j
+		\right)
+		u_i
+		=
+		\sum_{i = 1}^m
+		\sum_{j = 1}^n
+				b_{ij} \cdot v_j u_i
+		.
+	\]
+	Итак, каждый элемент~$k \in \KK$ раскладывается в~$\FF$ по базису~$\bu \otimes \bv$, причём в этом базисе
+	\[
+		mn =
+		\deg_{\LL}{\KK} \cdot \deg_{\FF}{\LL}
+		=
+		[\KK : \LL] \cdot [\LL : \FF]
+	\]
+	элементов. С другой стороны, $mn = \dim(\bu \otimes \bv) = \dim_{\FF}{\KK}$.
+\end{proof}
 
 
 
