@@ -134,7 +134,6 @@
 			% \label{<+label+>}
 		\end{array}
 	\]
-	\label{<+label+>}
 \end{definition}
 
 Свойства
@@ -151,7 +150,6 @@
 	Обычно элемент, обратный по сложению к~$a \in K$, обозначается~$-a$.
 
 	А элемент, обратный по умножению к~$a$, обозначается~$a^{-1}$.
-	\label{<+label+>}
 \end{remark}
 
 \subsection{Аксиомы кольца}
@@ -174,12 +172,10 @@
 
 \begin{remark}
 	По сложению \emph{любое} кольцо и так коммутативно, поэтому эпитет <<коммутативный>> при разговоре о кольцах относится только к умножению.
-	\label{<+label+>}
 \end{remark}
 
 \begin{remark}
 	Даже если кольцо~"--- это коммутативное кольцо с единицей, в нём может быть не выполнено свойство~(1.2.3) обратимости \emph{любого} ненулевого элемента. При этом \emph{какие-то} элементы этого кольца могут быть обратимы.
-	\label{<+label+>}
 \end{remark}
 
 В кольцах возможны <<экзотические>> ситуации.
@@ -189,12 +185,10 @@
 		ab = 0
 		.
 	\]
-	\label{<+label+>}
 \end{definition}
 
 \begin{definition}
 	Некоммутативное поле называется \emph{телом}.
-	\label{<+label+>}
 \end{definition}
 
 % \subsection{Определения}
@@ -408,7 +402,6 @@
 		[a] \cdot [b] := [kb]
 		.
 	\]
-	\label{<+label+>}
 \end{definition}
 
 \begin{remark}
@@ -449,7 +442,7 @@
 		(прообразы различных точек различны).
 	}%
 	.
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{remark}
 \begin{proofm}
 	Покажем, что результат вычисления~$[a] \cdot [b]$ не зависит от выбора представителей классов~$[a]$ и~$[b]$:
@@ -489,7 +482,6 @@
 		\\
 		(\phi \circ \psi)(b) &= b.
 	\end{align*}
-	\label{<+label+>}
 \end{definition}
 
 \subsection{Кольца вычетов}
@@ -529,7 +521,7 @@
 		}%
 	\]
 	то~$r$~"--- остаток от деления~$a$ на~$n$~"--- это наименьший положительный представитель класса~$[a] \in \ZZ/(n)$.
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{lemma}
 
 \begin{proof}
@@ -545,7 +537,6 @@
 	\[
 		[p][q] = [pq] = [n] = [0].
 	\]
-	\label{<+label+>}
 \end{proposition}
 \begin{example}
 	В $\ZZ/(12)$ (циферблат часов) имеем $[3] \cdot [4] = [12] = [0]$.
@@ -744,17 +735,17 @@
 
 \begin{definition}
 	\emph{Старшей степенью} полинома $f \in K[x]$ называется наибольшая степень $x^\nu$, для которой $a_\nu \neq 0$.
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{definition}
 
 \begin{definition}
 	\emph{Старшим коэффициентом} полинома $f \in K[x]$ называется коэффициент $a_\nu$ при старшей степени.
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{definition}
 
 \begin{definition}
 	\emph{Степенью} $\deg{f}$ полинома $f \in K[x]$ называется показатель старшей степени.
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{definition}
 
 Операция сложения определена покомпонентно:
@@ -890,7 +881,7 @@
 		f = g \cdot q + r
 	\]
 	и либо $\deg{r} < \deg{g}$, либо $r = 0$.
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{lemma}
 
 \begin{lemma}[вычисление значения полинома в точке]
@@ -899,7 +890,7 @@
 		f(x) = a_0 + a_1 x + \dots + a_n x^n
 	\]
 	на двучлен $x - \alpha$~"--- это константа, равная значению~$f(\alpha)$ многочлена~$f$ при $x = \alpha$.
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{lemma}
 \begin{proofm}
 	Поделим $f(x)$ на $x - \alpha$ с остатком:
@@ -919,21 +910,21 @@
 \end{proofm}
 \begin{remark}
 	Вычисление остатка от деления $f(x)$ на $(x - \alpha)$~"--- значительно более быстрый способ вычисления~$f(\alpha)$, чем подстановка напрямую.
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{remark}
 
 \begin{definition}
 	Элемент~$\alpha \in K$ называется \emph{корнем} многочлена~$f \in K[x]$, если $f(\alpha) = 0$.
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{definition}
 \begin{remark}
 	Это равносильно тому, что остаток от деления $f(x)$ на $(x - \alpha)$ равен нулю. А это значит, что $f(x)$ делится на $(x - \alpha)$.
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{remark}
 
 \begin{lemma}
 	Пусть $K$~"--- целостное кольцо, а $f$ имеет различные корни $(\alpha_1, \dots, \alpha_p)$. Тогда $f$ делится на произведение $\prod\limits_{i = 1}^{p} (x - \alpha_i)$.
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{lemma}
 \begin{proofm}
 	Так как в~$K$ нет делителей нуля и $\alpha_i - \alpha_j \neq 0$ при $i \neq j$, применим предыдущую лемму: $\alpha_1$~"--- корень~$f$, так что существует~$q(x) \in K[x]$, такой, что
@@ -960,7 +951,7 @@
 	и $q(\alpha) \neq 0$.
 
 	Корни кратности~$m \geq 2$ называются \tdef{кратными}.
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{definition}
 
 \begin{remark}
@@ -980,7 +971,7 @@
 		\\
 		D(\alpha) &= 0.
 	\end{align*}
-	\label{<+label+>}
+	% \label{<+label+>}
 \end{remark}
 
 \begin{lemma}
