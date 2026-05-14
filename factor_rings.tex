@@ -1359,7 +1359,66 @@
 	элементов. С другой стороны, $\dim_{\FF}{\KK} = \dim(\bu \otimes \bv) = mn$.
 \end{proof}
 
+\subsection{Конечные поля}
 
+\begin{definition}
+	\tdef{Конечное поле} --- это поле, состоящее из конечного числа элементов.
+	% \label{<+label+>}
+\end{definition}
+
+\begin{definition}
+	\[
+		\abs{\FF} :=
+		\left( 
+			\parbox{2em}{%
+				число элементов в~$\FF$%
+			}
+		\right)
+		.
+	\]
+	% \label{<+label+>}
+\end{definition}
+
+\begin{example}
+	Кольцо~$\ZZ/(p)$ при простом~$p$ является полем.
+\end{example}
+
+\begin{remark}
+	Мы уже видели, что при составном~$n \in \ZZ$ в кольце~$\ZZ/(n)$ есть делители нуля, и поэтому оно не является полем.
+	% \label{<+label+>}
+\end{remark}
+
+\begin{lemma}
+	Если поле~$\FF$ конечно, то~$\abs{\FF} = p^n$, где~$p$ --- простое, а~$n \in \NN$.
+	% \label{<+label+>}
+\end{lemma}
+\begin{proof}
+	% Пусть $\abs{\FF} = m \in \NN$. Так как~$\FF^\times = \FF \setminus \set*{0}$ образует конечную группу по умножению, то в ней есть образующая~$a \in \FF$, то есть такой элемент, что $a^m = 1$ и $a^\mu \neq 1$ при~$\mu < m$. 
+
+	% Если $m = nk$, где $n$, $k \in \NN$, то
+	% \[
+	% 	
+	% \]
+\end{proof}
+
+\begin{remark}
+	Хоть кольцо~$\ZZ/(p^m)$ состоит из~$\abs{\ZZ/(p^m)} = p^m$ элементов, но при~$m \neq 1$ оно не является полем, так что конечные поля так не построить.
+
+	Вместо этого стартуем с поля~$\FFp$ и строим его расширения, используя процедуру присоединения корней:
+	\begin{align*}
+		\FFp[2] &:= \frac{\FFp[x]}{(f_2)} = \FFp{}[\theta_2],
+		\\
+		\FFp[3] &:= \frac{\FFp[x]}{(f_3)} = \FFp{}[\theta_3],
+		\\
+		\hbox to 3in
+		{\dotfill}
+		\\
+		\FFp[n] &:= \frac{\FFp[x]}{(f_n)} = \FFp{}[\theta_n],
+	\end{align*}
+	где~$f_k \in \FFp{}[x]$ --- полином, 
+	
+	% \label{<+label+>}
+\end{remark}
 
 % \subsection{Поля}
 % 
