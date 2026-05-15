@@ -1470,16 +1470,20 @@
 
 	Вместо этого стартуем с поля~$\FFp$ и строим его расширения, используя процедуру присоединения корней:
 	\begin{align*}
-		\FFp[2] &:= \frac{\FFp[x]}{(f_2)} = \FFp{}[\theta_2],
+		\FFp[2] &:= \frac{\FFp{}[x]}{(f_2)} = \FFp{}[\theta_2],
 		\\
-		\FFp[3] &:= \frac{\FFp[x]}{(f_3)} = \FFp{}[\theta_3],
+		\FFp[3] &:= \frac{\FFp{}[x]}{(f_3)} = \FFp{}[\theta_3],
 		\\
-		\hbox to 3in
+		\hbox to 3em
+		{\dotfill}
+		&
+		\mkern -6.2mu
+		\hbox to 2in
 		{\dotfill}
 		\\
-		\FFp[n] &:= \frac{\FFp[x]}{(f_n)} = \FFp{}[\theta_n],
+		\FFp[n] &:= \frac{\FFp{}[x]}{(f_n)} = \FFp{}[\theta_n],
 	\end{align*}
-	где~$f_k \in \FFp{}[x]$ --- полином, 
+	где~$f_k \in \FFp{}[x]$ --- неприводимый полином степени~$k$, а~$\theta_k$ удовлетворяет уравнению~$f_k(\theta_k) = 0$.
 	
 	% \label{<+label+>}
 \end{remark}
@@ -1490,14 +1494,41 @@
 	Гомоморфизм Фробениуса --- это гомоморфизм полей
 	\[
 		\Phi \colon
-		\FFpn \to \FFpn
+		\FF_q \to \FF_q
 		\colon
-		x \mapsto x^{p^n}
+		x \mapsto x^{q}
 		.
 	\]
 \end{definition}
 
-В случае поля~$\FFp$ имеем~$\Phi \colon \FFp \to \FFp \colon x \mapsto x^p$.
+% \begin{lemma}
+% 	В поле характеристики~$p$
+% 	\[
+% 		(a + b)^p = a^p + b^p
+% 		.
+% 	\]
+% \end{lemma}
+% \begin{proof}
+% 	Раскроем скобки:
+% 	\[
+% 		(a + b)^p =
+% 		\sum_{k = 0}^p
+% 			\binom{p}{k}
+% 			a^k b^{p-k}
+% 			.
+% 	\]
+% 	Так как
+% 	\[
+% 		\binom{p}{k} =
+% 		\frac{p!}{k!\,(p-k)!}
+% 		=
+% 		p \cdot w
+% 		,
+% 	\]
+% 	где $w = (p-1)!/\bigl( k!\,(p-k)! \bigr)$, то $p$ делит~$\binom{p}{k}$, и поэтому~$\binom{p}{k} = 0$ (все числа, кратные~$p$, в поле )<++>
+% \end{proof}<++>
+
+
 
 
 
