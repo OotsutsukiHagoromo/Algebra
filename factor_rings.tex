@@ -724,6 +724,43 @@
 	\]
 \end{theorem}
 
+\begin{lemma}
+	Гомоморфизм полей~$\phi \colon F \to H$ переводит единицу в единицу.
+\end{lemma}
+\begin{proofm}
+	Так как~$\phi$ уважает умножение,
+	\[
+		\phi(1_F) =
+		\phi(1_F \cdot 1_F) =
+		\phi(1_F) \cdot \phi(1_F) =
+		\phi(1_F) \cdot \phi(1_F)
+		.
+	\]
+	Так как~$H$ --- поле, то равенство
+	\[
+		\phi(1_F) = \phi(1_F) \cdot \phi(1_F)
+	\]
+	можно умножить на~$\bigl( \phi(1_F) \bigr)^{-1}$ и получить
+	\[
+		1_H = \phi(1_F).
+		\proofmark
+	\]
+\end{proofm}
+
+\begin{remark}
+	Гомоморфизм колец с единицей~$\phi \colon K \to L$ не обязан переводить единицу в единицу.
+\end{remark}
+\begin{proof}
+	Отображение
+	\[
+		\psi \colon
+		K \to L
+		\colon
+		a \mapsto 0_L
+	\]
+	является гомоморфизмом колец (почему?), но отправляет~$1_K$ в~$0_L$.
+\end{proof}
+
 \subsection{Характеристика поля}
 
 \begin{definition}
