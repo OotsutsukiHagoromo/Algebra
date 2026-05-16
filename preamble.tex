@@ -45,7 +45,16 @@
 
 \newcommand*{\ee}{\mathbb{e}}
 \newcommand*{\uu}{\mathbb{u}}
+\newcommand*{\hh}{\mathbb{h}}
 
-\newcommand*{\Ann}{\mathop{\mathrm{Ann}}\limits}
+\newcommand*{\Ann}{\mathop{\mathrm{Ann}}\nolimits}
+\newcommand*{\pr}{\mathop{\mathrm{pr}}\nolimits}
 
 \newcommand*{\hnu}{\hat{\nu}}
+
+\newcommand*{\vproj}[2]{%
+	\frac{\spr{#1}{#2}}{\spr{#2}{#2}}\,#2
+}
+
+\newcommand*{\diag}{\mathop{\mathrm{diag}}\nolimits}
+\newcommand*{\Qe}{Q_{\ee}}
