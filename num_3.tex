@@ -1,10 +1,11 @@
 \newcommand*{\xpy}[1]{(x^{#1} + y^{#1})}
 
 \section{Расчётная задача 3}
-
+Пусть~$\ee = (e_1, e_2, e_3)$ --- базис в~$\kk^3$.
 Пусть
 \[
 	x =
+	\ee
 	\Vect{x^1 \\ x^2 \\ x^3}
 	\in \kk^3
 	.
@@ -12,8 +13,10 @@
 Проверить, являются ли линейным преобразования
 \begin{align*}
 	\phi_1 \colon \kk^3 \to \kk^3 \colon
+	\ee
 	\Vect{x^1 \\ x^2 \\ x^3}
 	\mapsto
+	\ee
 	\Vect{
 		-x^2 - x^3
 		\\
@@ -23,8 +26,10 @@
 	},
 	\\
 	\phi_2 \colon \kk^3 \to \kk^3 \colon
+	\ee
 	\Vect{x^1 \\ x^2 \\ x^3}
 	\mapsto
+	\ee
 	\Vect{
 		3x^2 + 4x^3
 		\\
@@ -35,13 +40,12 @@
 \end{align*}
 
 \begin{proofm}
-	Заметим, что, задав отображения~$\phi_\nu$ в координатах, мы выбрали базис в~$\kk^3$. Назовём его~$\ee = (e_1, e_2, e_3)$.
-
 	Покажем, что $\phi_1(x + y) = \phi_1(x) + \phi_1(y)$. Это делается прямой подстановкой с учётом того, как работает сложение векторов в координатах (покомпонентно):
 	\begin{multline*}
 		\phi_1(x + y) =
 		\phi_1
 		\left( 
+			\ee
 			\Vect{
 				x^1 + y^1
 				\\
@@ -51,6 +55,7 @@
 			}
 		\right)
 		=
+		\ee
 		\Vect{
 			-\xpy{2} - \xpy{3}
 			\\
@@ -59,6 +64,7 @@
 			-\xpy{3} - \xpy{1}
 		}
 		\nline{=}
+		\ee
 		\Vect{
 			-x^2 - x^3
 			\\
@@ -67,6 +73,7 @@
 			-x^3 - x^1
 		}
 		+
+		\ee
 		\Vect{
 			-y^2 - y^3
 			\\
@@ -83,6 +90,7 @@
 		\phi_1(\lambda x) =
 		\phi_1
 		\left( 
+			\ee
 			\Vect{
 				\lambda x^1 \\
 				\lambda x^2 \\
@@ -90,6 +98,7 @@
 			}
 		\right)
 		=
+		\ee
 		\Vect{
 			-\lambda x^2 - \lambda x^3
 			\\
@@ -99,6 +108,8 @@
 		}
 		=
 		\lambda
+		\,
+		\ee
 		\Vect{
 			-x^2 - x^3
 			\\
