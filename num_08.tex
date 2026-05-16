@@ -31,6 +31,7 @@
 	(x^1)^2 - 5(x^2)^2 + 2x^1 x^2 - 4 x^3 x^4 + 2x^1 x^4
 	.
 \]
+
 \begin{proofm}
 	Заметим, что~$q$ в базисе~$\ee$ имеет матрицу
 	\[
@@ -42,5 +43,57 @@
 			1 & 0 & -2 & 0
 		\end{pmatrix}
 		.
+	\]
+	Это значит, что если
+	\[
+		\crd{x}_{\ee} =
+		\Vect{x^1 \\ x^2 \\ x^3 \\ x^4}
+	\]
+	координаты вектора~$x$ в~базисе~$\ee$, то
+	\[
+		q(x) =
+		\crd{x}_{\ee}^\top
+		\Qe
+		\crd{x}_{\ee}
+	\]
+	в смысле умножения матриц.
+
+	Далее, если $\ss = \ee S$ --- замена координат, то
+	\[
+		x =
+		\ee \crd{x}_{\ee} =
+		\ss \crd{x}_{\ss} =
+		\ee S \crd{x}_{\ss}
+		,
+	\]
+	откуда
+	\[
+		\crd{x}_{\ee} = S \crd{x}_{\ss},
+	\]
+	и
+	\[
+		q(x) =
+		\bigl(
+			S \crd{x}_{\ss}
+		\bigr)^\top
+		\Qe
+		\bigl(
+			S \crd{x}_{\ss}
+		\bigr)
+		=
+		\crd{x}_{\ss}^\top
+		\cdot
+		\bigl(
+			\underbrace{S^\top \Qe S}_{\Qs}
+		\bigr)
+		\cdot
+		\crd{x}_{\ss}
+		,
+	\]
+	поэтому
+	\[
+		\Qs = S^{\top} \Qe S,
+		\qquad
+		\text{где $\ss = \ee S$.}
 	\]
 \end{proofm}
