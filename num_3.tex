@@ -1,0 +1,135 @@
+\newcommand*{\xpy}[1]{(x^{#1} + y^{#1})}
+
+\section{Расчётная задача 3}
+
+Пусть
+\[
+	x =
+	\Vect{x^1 \\ x^2 \\ x^3}
+	\in \kk^3
+	.
+\]
+Проверить, являются ли линейным преобразования
+\begin{align*}
+	\phi_1 \colon \kk^3 \to \kk^3 \colon
+	\Vect{x^1 \\ x^2 \\ x^3}
+	\mapsto
+	\Vect{
+		-x^2 - x^3
+		\\
+		-x^1 - x^3
+		\\
+		-x^3 - x^1
+	},
+	\\
+	\phi_2 \colon \kk^3 \to \kk^3 \colon
+	\Vect{x^1 \\ x^2 \\ x^3}
+	\mapsto
+	\Vect{
+		3x^2 + 4x^3
+		\\
+		5x^3 + 6x^2
+		\\
+		7x^2 + 8x^1
+	}.
+\end{align*}
+
+\begin{proofm}
+	Заметим, что, задав отображения~$\phi_\nu$ в координатах, мы выбрали базис в~$\kk^3$. Назовём его~$\ee = (e_1, e_2, e_3)$.
+
+	Покажем, что $\phi_1(x + y) = \phi_1(x) + \phi_1(y)$. Это делается прямой подстановкой с учётом того, как работает сложение векторов в координатах (покомпонентно):
+	\begin{multline*}
+		\phi_1(x + y) =
+		\phi_1
+		\left( 
+			\Vect{
+				x^1 + y^1
+				\\
+				x^2 + y^2
+				\\
+				x^3 + y^3
+			}
+		\right)
+		=
+		\Vect{
+			-\xpy{2} - \xpy{3}
+			\\
+			-\xpy{1} - \xpy{3}
+			\\
+			-\xpy{3} - \xpy{1}
+		}
+		\nline{=}
+		\Vect{
+			-x^2 - x^3
+			\\
+			-x^1 - x^3
+			\\
+			-x^3 - x^1
+		}
+		+
+		\Vect{
+			-y^2 - y^3
+			\\
+			-y^1 - y^3
+			\\
+			-y^3 - y^1
+		}
+		=
+		\phi_1(x) + \phi_1(y)
+		.
+	\end{multline*}
+	Проверили аддитивность, теперь проверим однородность, то есть что~$\phi_1(\lambda x) = \lambda \phi_1(x)$ для любого~$\lambda \in \kk$:
+	\begin{multline*}
+		\phi_1(\lambda x) =
+		\phi_1
+		\left( 
+			\Vect{
+				\lambda x^1 \\
+				\lambda x^2 \\
+				\lambda x^3 \\
+			}
+		\right)
+		=
+		\Vect{
+			-\lambda x^2 - \lambda x^3
+			\\
+			-\lambda x^1 - \lambda x^3
+			\\
+			-\lambda x^3 - \lambda x^1
+		}
+		=
+		\lambda
+		\Vect{
+			-x^2 - x^3
+			\\
+			-x^1 - x^3
+			\\
+			-x^3 - x^1
+		}
+		=
+		\lambda \phi_1(x)
+		.
+	\end{multline*}
+
+	Аналогично проверяется линейность~$\phi_2$.
+
+	Также можно заметить, что в базисе~$\ee$ функция~$\phi_\nu$ задаётся матрицей~$A_\nu$, где
+	\[
+		A_1 :=
+		\begin{pmatrix}
+			0 & -1 & -1 \\
+			-1 & 0 & -1 \\
+			-1 & 0 & -1
+		\end{pmatrix}
+		,
+		\quad
+		A_2 :=
+		\begin{pmatrix}
+			0 & 3 & 4 \\
+			0 & 6 & 5 \\
+			8 & 7 & 0
+		\end{pmatrix}
+		.
+		\proofmark
+	\]
+\end{proofm}
