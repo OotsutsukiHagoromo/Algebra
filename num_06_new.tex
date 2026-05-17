@@ -1,0 +1,476 @@
+\section{Расчётная задача 6}
+
+Направляющий вектор~$a \in \RR^3$ с координатами~$(1, 3, 1)^\top$ задаёт одномерное подпространство~$L_1 \leq \RR^3$, а линейное однородное уравнение
+\[
+	5x - 2y + 2z = 0
+\]
+--- двумерное подпространство~$L_2 \leq \RR^3$. Требуется:
+\begin{enumerate}[1)]
+	\item построить матрицы~$A$ проектирования на~$L_1$ параллельно~$L_2$ и~$B$ проектирования на~$L_2$ параллельно~$L_1$;
+	\item доказать, что $AB = BA = 0$, $A^2 = A$, $B^2 = B$, $A + B = E$;
+	\item найти ядро, образ, собственные числа и собственные векторы каждого оператора;
+	\item выяснить, на какие компоненты распадается вектор~$b$ с координатами $(1, 1, 1)^\top$ при разложении~$\RR^3 = L_1 \oplus L_2$.
+\end{enumerate}
+\begin{proofm}
+	Разберём более общую ситуацию. Пусть есть разложение
+	\[
+		V = L_1 \oplus L_2
+		,
+	\]
+	где $\dim{V} = n$, $\dim{L_1} = k$, $\dim{L_2} = n - k$, и требуется построить проектор, скажем, на первое подпространство:
+	\[
+		\pi_1 \colon L_1 \oplus L_2 \to L_1
+		.
+	\]
+	Пусть~$\uu = (u_1, \dots, u_k) \subset L_1$ --- базис. Так как сумма~$L_1 \oplus L_2$ --- прямая, то существует набор линейных функционалов~$\xi^1$, \dots, $\xi^k \in V^*$, такой, что
+	\[
+		L_2 =
+		\bigcap_{i = 1}^k
+			\ker{\xi^i}
+		.
+	\]
+	(Каждый из них задаёт~$(n-1)$-мерное подпространство~$\ker{\xi^i}$, и можно выбрать~$\xi^i$ так, чтобы пересечение этих подпространств было~$(n-k)$-мерным --- причём таким, каким нужно нам.) При этом выберем набор ковекторов~$(\xi^i)$ так, чтобы они образовывали базис, дуальный базису~$\uu \subset L_1$:
+	\[
+		\xi^i(u_j) = \delta^i_j
+		.
+	\]
+	Тогда проектор на~$L_1$ вдоль~$L_2$ имеет вид
+	\begin{equation}
+		\label{eq:num_06:gen:pi_1}
+		\pi_1 =
+		\sum_{i = 1}^k
+			u_i \otimes \xi^i
+		.
+	\end{equation}
+	(Как и любой линейный эндоморфизм, $\pi_1 \in V^* \otimes V$.)
+	
+	Запишем теперь оператор~$\pi_1$, заданный формулой~\eqref{eq:num_06:gen:pi_1}, в координатах в произвольном базисе~$\ee = (e_1, \dots, e_n) \subset V$ и дуальном ему базисе~$\ee^* = (e^1, \dots, e^n)$.
+
+	Пусть $u_i = u_i^j e_j$, где $u_i^j \in \RR$ и используется соглашение суммирования Эйнштейна. Пусть, далее, $\xi^i = \xi^i_j e^j$, где $\xi^i_j \in \RR$. Тогда
+	\begin{align*}
+		\pi_1 &=
+		\sum_{i = 1}^k
+			u_i \otimes \xi^i
+		=
+		\sum_{i = 1}^k
+		\sum_{\mu = 1}^n
+		\sum_{\nu = 1}^n
+			u_i^\mu e_\mu \otimes \xi^i_\nu e^\nu
+		\nlinea{=}
+		\sum_{i = 1}^k
+		\sum_{\mu = 1}^n
+		\sum_{\nu = 1}^n
+			u_i^\mu \xi^i_\nu \cdot e_\mu \otimes e^\nu
+		=
+		\sum_{\mu = 1}^n
+		\sum_{\nu = 1}^n
+		\left( 
+			\sum_{i = 1}^k
+				u_i^\mu \xi^i_\nu 
+		\right)
+		e_\mu \otimes e^\nu
+		.
+		\refstepcounter{equation}
+		\tag{\theequation}
+		\label{eq:num_06:crd:pi_1}
+	\end{align*}
+	Если $\ee$ записать в строку, $\ee^*$ --- в столбик:
+	\begin{align*}
+		\ee &=
+		\Vect{
+			e_1 & \dots & e_n
+		}
+		,
+		&
+		\ee^* &=
+		\Vect{
+			e^1 \\ \dots \\ e^n
+		}
+		,
+	\end{align*}
+	то вектор~$u_i$ и ковектор~$\xi^j$ запишутся в виде
+	\begin{align*}
+		u_i
+		&=
+		\Vect{
+			e_1 & \dots & e_n
+		}
+		\Vect{u_i^1 \\ \dots \\ u_i^n},
+		&
+		\xi^j
+		&=
+		\Vect{\xi^j_1 & \dots & \xi^j_n}
+		\Vect{
+			e^1 \\ \dots \\ e^n
+		}
+		,
+	\end{align*}
+	и тогда
+	\begin{align*}
+		u_i \otimes \xi^j
+		&=
+		\left[ 
+			\Vect{
+				e_1 & \dots & e_n
+			}
+			\Vect{u_i^1 \\ \dots \\ u_i^n}
+		\right]
+		\otimes
+		\left[ 
+			\Vect{\xi^j_1 & \dots & \xi^j_n}
+			\Vect{
+				e^1 \\ \dots \\ e^n
+			}
+		\right]
+		\nlinea{=}
+		\Vect{
+			e_1 & \dots & e_n
+		}
+		\left[ 
+			\Vect{u_i^1 \\ \dots \\ u_i^n}
+			\Vect{\xi^j_1 & \dots & \xi^j_n}
+		\right]
+		\Vect{
+			e^1 \\ \dots \\ e^n
+		}
+		% \nlinea{=}
+		% \Vect{
+		% 	e_1 & \cdots & e_n
+		% }
+		% \begin{pmatrix}
+		% 	u_i^1 \xi_1^j
+		% 	&
+		% 	\cdots
+		% 	&
+		% 	u_i^1 \xi_n^j
+		% 	\\
+		% 	\hdotsfor{3}
+		% 	\\
+		% 	u_i^n \xi_n^j
+		% 	&
+		% 	\cdots
+		% 	&
+		% 	u_i^n \xi_n^j
+		% \end{pmatrix}
+		% \Vect{
+		% 	e^1 \\ \cdots \\ e^n
+		% }
+	\end{align*}
+	Если теперь посмотреть на то, что находится внутри суммы по~$i$ в выражении~\eqref{eq:num_06:crd:pi_1}, то станет видно, что
+	\begin{align*}
+		\pi_1 &=
+		\Vect{
+			e^1 \\ \dots \\ e^n
+		}
+		\underbrace{
+			\begin{pmatrix}
+				u_1^1 & u_2^1 & \dots & u_n^1
+				\\
+				u_1^2 & u_2^2 & \dots & u_n^2
+				\\
+				\hdotsfor{4}
+				\\
+				u_1^n & u_2^n & \dots & u_n^n
+			\end{pmatrix}
+		}_{U}
+		\underbrace{
+			\begin{pmatrix}
+				\xi_1^1 & \xi_2^1 & \dots & \xi_n^1
+				\\
+				\xi_1^2 & \xi_2^2 & \dots & \xi_n^2
+				\\
+				\hdotsfor{4}
+				\\
+				\xi_1^n & \xi_2^n & \dots & \xi_n^n
+			\end{pmatrix}
+		}_{\Xi}
+		\Vect{
+			e_1 & \dots & e_n
+		}
+		\nlinea{=}
+		\Vect{
+			e^1 \\ \dots \\ e^n
+		}
+		\left[ 
+			\underbrace{
+				\vphantom{
+					\Vect{
+						\crd{\xi^1} \\
+						\dots \\
+						\crd{\xi^n}
+					}
+				}
+				\Vect{
+					\crd{u_1} &
+					\dots &
+					\crd{u_n}
+				}
+			}_{U}
+			\underbrace{
+				\Vect{
+					\crd{\xi^1} \\
+					\dots \\
+					\crd{\xi^n}
+				}
+			}_{\Xi}
+		\right]
+		\Vect{
+			e_1 & \dots & e_n
+		}
+		.
+	\end{align*}
+	Произведение матриц~$P_1 := U\Xi$ и будет матрицей оператора~$i_1$ в базисе~$\ee$.
+
+	В виде
+	\[
+		U\Xi =
+		\Vect{
+			\crd{u_1} &
+			\dots &
+			\crd{u_n}
+		}
+		\Vect{
+			\crd{\xi^1} \\
+			\dots \\
+			\crd{\xi^n}
+		}
+	\]
+	процедуру построения проектора запомнить особенно легко, особенно вспомнив формулу~$\pi = \sum_{i=1}^k u_i \otimes \xi^i$.
+
+	Кстати, по этой же схеме строят проекторы в квантовой механике: ковекторы записываются в бра-скобках~$\bra{\cdot}$, векторы записываются в кет-скобках~$\ket{\cdot}$ (вместе --- бра и кет, \emph{bracket}, обозначение П.\,А.\,М.~Дирака). Обозначение тензорного произведения часто опускается, а применение ковектора~$\xi^i$ к вектору~$u_j$ записывается в виде~$\braket{\xi^i}{u_j}$.
+	Тогда
+	\[
+		\pi_1 =
+		\sum_{i = 1}^k
+			\ket{u_i}
+			\bra{\xi^j}
+		,
+	\]
+	и результат применения~$\pi_1$ к вектору~$v \in V$ записывается в виде
+	\[
+		\pi_1(v) =
+		\sum_{i = 1}^k
+			\ket{u_i}
+			\braket{\xi^j}{v}
+		.
+	\]
+	Сразу видно, что $\braket{\xi^j}{v} \in \RR$, а будучи умноженным на вектор~$\ket{u_i}$ оно также даёт вектор. Сумма векторов --- тоже вектор, и тогда~$\pi_1(v) \in V$.
+
+	\paragraph{Случай в задаче.}
+	В нашей задаче $V \supset \ee = (e_1, e_2, e_3)$ --- стандартный ортонормированный базис; $V = L_1 \oplus L_2$, где $L_1 = \left< a\right>$, $L_2 = \ker{\xi}$ и
+	\begin{align*}
+		a &=
+		\ee
+		\Vect{1 \\ 3 \\ 1}
+		,
+		&
+		\xi &=
+		\Vect{5 & -2 & 2}
+		\ee^*
+		.
+	\end{align*}
+	Иными словами, $V = \left< a\right> \oplus \ker{\xi}$.
+	Так как сумма прямая, то должно быть~$\xi(a) \neq 0$:
+	\[
+		\xi(a) =
+		\Vect{5 & -2 & 2}
+		\Vect{1 \\ 3 \\ 1}
+		=
+		5 - 6 + 2 = 1 \neq 0.
+	\]
+	Тогда любой вектор~$v \in V$ единственным образом раскладывается в сумму
+	\begin{equation}
+		\label{eq:num_06:part:v}
+		v = \lambda a + w
+		,
+	\end{equation}
+	где~$\lambda \in \RR$, $w \in \ker{\xi}$. Найдём~$\lambda$, применив к~\eqref{eq:num_06:part:v} функицонал~$\xi$:
+	\[
+		\xi(v) = \xi(\lambda a) + \xi(w) = \lambda \xi(a)
+		,
+	\]
+	так как~$w \in \ker{\xi}$. Поэтому
+	\[
+		\lambda = \frac{\xi(v)}{\xi(a)},
+	\]
+	так как~$\xi(a) \neq 0$.
+
+	Поэтому проектор~$\pi_1$ на~$L_1 = \left< a\right>$ вдоль~$L_2$ равен
+	\[
+		\pi_1(v) =
+		\frac{1}{\xi(a)}\,\xi(v)\,a,
+	\]
+	или, что то же самое,
+	\[
+		\pi_1(\ket{v}) =
+		\frac{1}{\braket{\xi}{a}}\,\braket{\xi}{v} \ket{a},
+	\]
+	откуда видно, что
+	\[
+		\pi_1 =
+		\frac{1}{\braket{\xi}{a}}\,
+		\ket{a} \otimes \bra{\xi}
+		.
+	\]
+	В базисе~$\ee$ матрица~$P_1$ проектора~$\pi_1$ будет иметь вид
+	\begin{multline*}
+		P_1 =
+		\frac{1}{\braket{\xi}{a}}
+		\Vect{
+			a^1 \\ a^2 \\ a^3
+		}
+		\Vect{
+			\xi_1 & \xi_2 & \xi_3
+		}
+		=
+		\frac{1}{1}
+		\Vect{
+			1 \\ 3 \\ 1
+		}
+		\Vect{
+			5 & -2 & 2
+		}
+		\nline{=}
+		\begin{pmatrix}
+			1 \cdot 5 & 1 \cdot (-2) & 1 \cdot 2
+			\\
+			3 \cdot 5 & 3 \cdot (-2) & 3 \cdot 2
+			\\
+			1 \cdot 5 & 1 \cdot (-2) & 1 \cdot 2
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			5 & -2 & 2
+			\\
+			15 & -6 & 6
+			\\
+			5 & -2 & 2
+		\end{pmatrix}
+		.
+	\end{multline*}
+
+	\subsection{Проектор на \mathversion{bold}$L_2$}
+
+	Чтобы найти~$\pi_2 \colon L_1 \oplus L_2 \to L_2$, можно пойти двумя путями:
+	\begin{enumerate}[1)]
+		\item воспользоваться свойством~$\pi_1 + \pi_2 = \id_V$ и сказать, что~$\pi_2 = \id_V - \pi_1$, и тогда в матричной форме
+			\[
+				P_2 = E - P_1 =
+				\begin{pmatrix}
+					-4 & 2 & -2
+					\\
+					-15 & 7 & -6
+					\\
+					-5 & 2 & -1
+				\end{pmatrix}
+				;
+			\]
+		\item найти базис~$\uu = (u_1, u_2) \subset L_2$ и воспользоваться общим подходом, изложенным выше.
+	\end{enumerate}
+	Так как в условии задачи просят \emph{проверить} равенство~$P_1 + P_2 = E$, то мы не можем использовать его и пойти по первому пути. Нужно сделать всё честно.
+
+	\subsubsection{\mathversion{bold}Базис в~$\ker{\xi}$}
+
+	Найдём~$\uu$. Для этого решим уравнение~$\xi(v) = 0$. Если зафиксирован базис~$\ee$ и~$v = \ee (v^1 \\ v^2 \\ v^3)^{\top}$, то
+	\[
+		\xi(v) =
+		\Vect{
+			5 & -2 & 2
+		}
+		\Vect{
+			v^1 \\ v^2 \\ v^3
+		}
+		=
+		0
+		.
+	\]
+	Возьмём ненулевой минор этой системы, например~$\det(5) \neq 0$. Тогда $v^2 =: c^2$ и $v^3 =: c^3$ --- две константы, и
+	\[
+		5v^1 = 2c^2 - 2c^3,
+	\]
+	откуда
+	\[
+		\Vect{
+			v^1 \\ v^2 \\ v^3
+		}
+		=
+		\Vect{
+			(2c^2 - 2c^3)/5
+			\\
+			c^2
+			\\
+			c^3
+		}
+		=
+		c^2
+		\Vect{
+			2/5
+			\\
+			1
+			\\
+			0
+		}
+		+
+		c^2
+		\Vect{
+			-2/5
+			\\
+			0
+			\\
+			1
+		}
+		=
+		5c^2
+		\Vect{
+			2
+			\\
+			5
+			\\
+			0
+		}
+		+
+		5
+		c^2
+		\Vect{
+			-2
+			\\
+			0
+			\\
+			5
+		}
+		.
+	\]
+	Видно, что если $v \in \ker{\xi}$, то $v$ представляется в виде линейной комбинации векторов
+	\[
+		u_1 =
+		\ee
+		\Vect{2 \\ 5 \\ 0}
+		\qquad
+		\text{и}
+		\qquad
+		u_2 =
+		\ee
+		\Vect{-2 \\ 0 \\ 5}
+		.
+	\]
+	Тогда возьмём их в качестве базиса:
+	\[
+		\uu :=
+		\ee
+		\,
+		\underbrace{
+			\left( 
+				\begin{array}{r|r}
+					2 & -2 \\
+					5 & 0 \\
+					0 & 5
+				\end{array}
+			\right)
+		}_{U}
+		.
+	\]
+
+
+
+
+\end{proofm}
