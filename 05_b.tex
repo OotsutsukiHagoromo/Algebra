@@ -3,16 +3,17 @@
 Пусть $f_k(x) := x^{p^k} - x \in \FFp{}[x]$. Нам предлагается найти $f_n(x) \bmod f_m(x)$. Это то же самое, что найти $[f_n(x)]$ в~$\FFp{}[x]/(f_m)$.
 
 Есть факторкольцо~"--- посмотрим на гомоморфизм факторизации
-\[
+\begin{align*}
 	\pi
 	\colon
 	\FFp{}[x]
-	\to
+	&\to
 	\frac{\FFp{}[x]}{(f_m)}
 	\colon
-	x \mapsto [x] =: \theta
+	\\
+	x &\mapsto [x] =: \theta
 	.
-\]
+\end{align*}
 Как и выше, $\FFp{}[x]/(f_m)$ можно воспринимать как кольцо~$\FFp{}[\theta]$, где для~$\theta$ выполняется равенство~$f_m(\theta) = 0$. Найдём $[f_n(x)] = f_n(\theta)$:
 \[
 	\pi\bigl( f_n \bigr) =
