@@ -35,3 +35,56 @@ $.
 		}
 	}
 \end{equation}
+
+\subsection{Замена матрицы квадратичной формы}
+
+Пусть квадратичная форма~$q$ в базисе~$\ee$ имеет матрицу
+$\Qe$.
+Это значит, что если~$\crd{x}_{\ee}$ --- столбец координат вектора~$x$ в~базисе~$\ee$, то
+\[
+	q(x) =
+	\crd{x}_{\ee}^\top
+	\Qe
+	\crd{x}_{\ee}
+\]
+в смысле умножения матриц.
+
+Далее, если $\ss = \ee S$ --- замена координат, то
+\[
+	x =
+	\ee \crd{x}_{\ee} =
+	\ss \crd{x}_{\ss} =
+	\ee S \crd{x}_{\ss}
+	,
+\]
+откуда
+\[
+	\crd{x}_{\ee} = S \crd{x}_{\ss},
+\]
+и
+\[
+	q(x) =
+	\bigl(
+		S \crd{x}_{\ss}
+	\bigr)^\top
+	\Qe
+	\bigl(
+		S \crd{x}_{\ss}
+	\bigr)
+	=
+	\crd{x}_{\ss}^\top
+	\cdot
+	\bigl(
+		\underbrace{S^\top \Qe S}_{\Qs}
+	\bigr)
+	\cdot
+	\crd{x}_{\ss}
+	,
+\]
+поэтому
+\begin{equation}
+	\label{eq:coords:Q}
+	\Qs = S^{\top} \Qe S,
+	\qquad
+	\text{где $\ss = \ee S$.}
+\end{equation}
