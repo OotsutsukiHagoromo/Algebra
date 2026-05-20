@@ -28,15 +28,20 @@ path triangle = A--B--C--cycle;
 path AB = A--B;
 path AC = A--C;
 path BC = B--C;
+path CB = C--B;
 
 pen drawpen  = defaultpen;
 pen labelpen = defaultpen;
 
-draw(triangle, drawpen);
+// draw(triangle, drawpen);
+draw (AB, drawpen);
+draw (AC, drawpen);
+draw (CB, drawpen);
 
-label("$A$", A, SW, labelpen);
-label("$B$", B, SE, labelpen);
-label("$C$", C, NE, labelpen);
+
+// label("$A$", A, SW, labelpen);
+// label("$B$", B, SE, labelpen);
+// label("$C$", C, NE, labelpen);
 
 label(Label("$\norm{v}$", Rotate(C-A)), AC, plain.N, labelpen);
 label(Label("$\norm{v_\pi}$"), AB, plain.S, labelpen);
