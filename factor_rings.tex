@@ -251,7 +251,7 @@
 Это свойство можно выразить в виде коммутативной диаграммы
 \[
 	\vtop{
-		\xymatrix @=2cm {
+		\xymatrix @=2.1cm {
 			A \times A
 			\ar [r] _-{\plusA}
 			\ar [d] _-{\phi \times \phi}
@@ -267,7 +267,7 @@
 	}
 		\qquad
 	\vtop{
-		\xymatrix{
+		\xymatrix @=1cm {
 			(a', a'')
 			\ar @{|->} [r] _-{\plusA}
 			\ar @{|->} [d] _-{\phi \times \phi}
@@ -278,13 +278,59 @@
 			\bigl( \phi(a'), \phi(a'') \bigr)
 			\ar @{|->} [r] _-{\plusB}
 			&
-			\fbox{\usebox{\tempbox}}
+			\usebox{\tempbox}
 		}
 	}
 \]
 (коммутативность означает, что можно двигаться по любому пути, указанном стрелками, и получить один и тот же результат).
 
-Для операций умножения на число коммутативная диаграмма выглядит аналогично:
+Для умножения на число коммутативная диаграмма выглядит аналогично:
+\savebox{\tempbox}{%
+	\begin{minipage}{1.23in}
+		$\displaystyle
+			\left(
+				\begin{gathered}
+					\phi(a') \cdotB \phi(a'')
+					\\
+					\phi(a' \cdotA a'')
+				\end{gathered}
+			\right)
+		$
+	\end{minipage}
+}%
+\[
+	\vtop{
+		\xymatrix @=2.1cm {
+			A \times A
+			\ar [r] _-{\cdotA}
+			\ar [d] _-{\phi \times \phi}
+			&
+			A
+			\ar [d] ^-{\phi}
+			\\
+			B \times B
+			\ar [r] _-{\cdotB}
+			&
+			B
+		}
+	}
+		\qquad
+	\vtop{
+		\xymatrix @=1cm {
+			(a', a'')
+			\ar @{|->} [r] _-{\cdotA}
+			\ar @{|->} [d] _-{\phi \times \phi}
+			&
+			a' \cdotA a''
+			\ar @{|->} [d] ^-{\phi}
+			\\
+			\bigl( \phi(a'), \phi(a'') \bigr)
+			\ar @{|->} [r] _-{\cdotB}
+			&
+			\usebox{\tempbox}
+		}
+	}
+\]
 % \[
 % 	\xymatrix{
 % 		A \times A
