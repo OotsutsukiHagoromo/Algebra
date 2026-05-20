@@ -236,8 +236,8 @@
 
 \newsavebox{\tempbox}
 \savebox{\tempbox}{%
-	\begin{minipage}{2in}
-		\[
+	\begin{minipage}{1.23in}
+		$\displaystyle
 			\left(
 				\begin{gathered}
 					\phi(a') \plusB \phi(a'')
@@ -245,7 +245,7 @@
 					\phi(a' \plusA a'')
 				\end{gathered}
 			\right)
-		\]
+		$
 	\end{minipage}
 }
 Это свойство можно выразить в виде коммутативной диаграммы
@@ -278,7 +278,7 @@
 			\bigl( \phi(a'), \phi(a'') \bigr)
 			\ar @{|->} [r] _-{\plusB}
 			&
-			\usebox{\tempbox}
+			\fbox{\usebox{\tempbox}}
 		}
 	}
 \]
