@@ -157,6 +157,16 @@
 		% }
 	\end{align*}
 	Если теперь посмотреть на то, что находится внутри суммы по~$i$ в выражении~\eqref{eq:num_06:crd:pi_1}, то станет видно, что
+	\newlength{\vectheight}%
+	\settoheight{\vectheight}{%
+		$\displaystyle
+			\Vect{
+				\crd{\xi^1} \\
+				\cdots \\
+				\crd{\xi^n}
+			}
+		$%
+	}%
 	\begin{align*}
 		\pi_1 &=
 		\Vect{
@@ -192,27 +202,34 @@
 			e^1 \\ \dots \\ e^n
 		}
 		\left[ 
+			\vphantom{\rule{0pt}{\vectheight}}
+		\right.
 			\underbrace{
 				\vphantom{
 					\Vect{
 						\crd{\xi^1} \\
-						\dots \\
+						\cdots \\
 						\crd{\xi^n}
 					}
 				}
 				\Vect{
+					| & & | \\
 					\crd{u_1} &
-					\dots &
+					\cdots &
 					\crd{u_n}
+					\\
+					| & & | \\
 				}
 			}_{U}
 			\underbrace{
 				\Vect{
-					\crd{\xi^1} \\
-					\dots \\
-					\crd{\xi^n}
+					- & \crd{\xi^1} & -\\
+					& \cdots & \\
+					- & \crd{\xi^n} & -
 				}
 			}_{\Xi}
+		\left.
+			\vphantom{\rule{0pt}{\vectheight}}
 		\right]
 		\Vect{
 			e_1 & \dots & e_n
