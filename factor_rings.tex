@@ -448,7 +448,7 @@
 	\[
 		[a] + [b] := [a + b].
 	\]
-	Аналогично определяем умножение на элемент~$A/I$:
+	Аналогично определяем умножение:
 	\begin{align*}
 		\cdot \colon
 		\frac{A}{I} \times \frac{A}{I} &\to \frac{A}{I}
@@ -459,7 +459,7 @@
 	\end{align*}
 	Иными словами,
 	\[
-		[a] \cdot [b] := [kb]
+		[a] \cdot [b] := [ab]
 		.
 	\]
 \end{definition}
@@ -668,12 +668,12 @@
 \subsection{Ядра гомоморфизмов}
 
 % Пусть $A$ и $B$~"--- кольца с единицами $1_A \in A$ и $1_B \in B$.
-Пусть $\phi \colon A \to B$~"--- гомоморфизм колец. Тогда \emph{ядро гомоморфизма~$\phi$}~"--- это
+Пусть $\phi \colon A \to B$~"--- гомоморфизм колец. Тогда \emph{ядро гомоморфизма~$\phi$}~"--- это прообраз нуля:
 \[
 	\ker{\phi} := \phi^{-1}(0_B) =
 	\set{a \in A}{\phi(a) = 0_B};
 \]
-\emph{образ гомоморфизма~$\phi$}~"--- это
+\emph{образ гомоморфизма~$\phi$}~"--- это образ кольца~$A$:
 \[
 	\im{\phi} := \phi(A) = \set{\phi(a)}{a \in A} \subset B
 	.
@@ -684,27 +684,36 @@
 	% \label{<+label+>}
 \end{proposition}
 \begin{proofm}
-	Покажем, что $\ker{\phi}$~"--- подкольцо в~$A$. Для этого покажем, что $\forall x,\ y \in \ker{\phi}$ выполняются условия $x \cdot y \in \ker{\phi}$.
+	Покажем, что $\ker{\phi}$~"--- подкольцо в~$A$. Для этого покажем, что для любых $x,\ y \in \ker{\phi}$ выполняются условия $x + y \in \ker{\phi}$ и $x \cdot y \in \ker{\phi}$.
 	
-	Пусть $x,\ y \in \ker{\phi}$. Это значит, что $\phi(x) = 0_B$, $\phi(y) = 0_B$. Тогда
-	\[
-		\phi(x \cdot y) :=
+	Если $x,\ y \in \ker{\phi}$, то $\phi(x) = 0_B$, $\phi(y) = 0_B$. Тогда
+	\begin{align*}
+		\phi(x + y) &:=
+		\phi(x) + \phi(y)
+		=
+		0_B + 0_B = 0_B,
+		\\
+		\phi(x \cdot y) &:=
 		\phi(x) \cdot \phi(y)
 		=
 		0_B \cdot 0_B = 0_B,
-	\]
-	и $x \cdot y \in \ker{\phi}$.
+	\end{align*}
+	и
+	$x + y \in \ker{\phi}$,
+	$x \cdot y \in \ker{\phi}$.
 
 	\medskip
 
-	Аналогично покажем, что~$\im{\phi} \leq B$. Пусть $p,\ q \in \im{B}$. Покажем, что тогда $pq \in \im{B}$.
+	Аналогично покажем, что~$\im{\phi} \leq B$. Пусть $p,\ q \in \im{\phi}$. Покажем, что тогда $p+q \in \im{\phi}$ и $pq \in \im{\phi}$.
 
-	Так как $p\in \im{B}$, то существует (возможно, не единственный) элемент $x \in A$, такой, что $\phi(x) = p$; аналогично, для~$q \in \im{B}$ существует элемент $y \in A$, такой, что $\phi(y) = q$. Тогда элемент~$xy$~"--- это прообраз элемента~$pq$, так что $pq \in \im{B}$:
-	\[
-		\phi(xy) = \phi(x) \phi(y) = pq
+	Так как $p\in \im{\phi}$, то существует (возможно, не единственный) элемент $x \in A$, такой, что $\phi(x) = p$; аналогично, для~$q \in \im{\phi}$ существует элемент $y \in A$, такой, что $\phi(y) = q$. Тогда
+	\begin{align*}
+		\phi(x+y) &= \phi(x) + \phi(y) = p + q,
+		\\
+		\phi(xy) &= \phi(x) \phi(y) = pq
 		.
-		\proofmark
-	\]
+	\end{align*}
+	Поэтому~$x + y$ --- прообраз~$p+q$, а~$xy$~"--- прообраз элемента~$pq$, так что $p+q \in \im{\phi}$ и $pq \in \im{\phi}$.
 \end{proofm}
 
 \begin{theorem}[о гомоморфизме]
