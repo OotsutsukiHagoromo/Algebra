@@ -224,7 +224,7 @@
 \subsection{Гомоморфизмы колец}
 
 \begin{definition}
-	Гомоморфизм колец $\phi \colon A \to B$~"--- это отображение подлежащих множеств, которое переводит сложение в сложение, а умножение на число~"--- в умножение на число: для любых $a'$, $a'' \in A$ выполняется
+	Гомоморфизм колец $\phi \colon A \to B$~"--- это отображение подлежащих множеств, которое переводит сложение в сложение, а умножение~"--- в умножение: для любых $a'$, $a'' \in A$ выполняется
 	\begin{align*}
 		\phi(a' \plusA a'') &=
 		\phi(a') \plusB \phi(a''),
@@ -250,32 +250,36 @@
 }
 Это свойство можно выразить в виде коммутативной диаграммы
 \[
-	\xymatrix{
-		A \times A
-		\ar [r] _-{\plusA}
-		\ar [d] _-{\phi \times \phi}
-		&
-		A
-		\ar [d] ^-{\phi}
-		\\
-		B \times B
-		\ar [r] _-{\plusB}
-		&
-		B
+	\vtop{
+		\xymatrix @=2cm {
+			A \times A
+			\ar [r] _-{\plusA}
+			\ar [d] _-{\phi \times \phi}
+			&
+			A
+			\ar [d] ^-{\phi}
+			\\
+			B \times B
+			\ar [r] _-{\plusB}
+			&
+			B
+		}
 	}
-	\qquad
-	\xymatrix{
-		(a', a'')
-		\ar @{|->} [r] _-{\plusA}
-		\ar @{|->} [d] _-{\phi \times \phi}
-		&
-		a' \plusA a''
-		\ar @{|->} [d] ^-{\phi}
-		\\
-		\bigl( \phi(a'), \phi(a'') \bigr)
-		\ar @{|->} [r] _-{\plusB}
-		&
-		\usebox{\tempbox}
+		\qquad
+	\vtop{
+		\xymatrix{
+			(a', a'')
+			\ar @{|->} [r] _-{\plusA}
+			\ar @{|->} [d] _-{\phi \times \phi}
+			&
+			a' \plusA a''
+			\ar @{|->} [d] ^-{\phi}
+			\\
+			\bigl( \phi(a'), \phi(a'') \bigr)
+			\ar @{|->} [r] _-{\plusB}
+			&
+			\usebox{\tempbox}
+		}
 	}
 \]
 (коммутативность означает, что можно двигаться по любому пути, указанном стрелками, и получить один и тот же результат).
