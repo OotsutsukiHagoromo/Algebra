@@ -307,6 +307,7 @@
 	\phi(\dots, v_\nu', \dots) +
 	\phi(\dots, v_\nu'', \dots)
 	,
+	\\
 	k \cdot \phi(\dots, v_\nu, \dots) &=
 	\phi(\dots, kv_\nu, \dots)
 	.
@@ -322,3 +323,84 @@
 % 	&=
 % 
 % \end{align*}
+
+\begin{definition}
+	Полилинейные отображения при~$m = 2$ называются \tdef{билинейными}, а при~$m = 3$ --- \tdef{трилинейными}.
+\end{definition}
+
+\begin{example}
+	Скалярное произведение является билинейным отображением.
+\end{example}
+\begin{example}
+	Определитель матрицы как функция столбцов (или строк) является полилинейным отображением: если~$A = (a_1, \dots, a_m)$, где~$a_\nu$ --- столбцы матрицы, то
+	\begin{align*}
+		\det(a_1, \dots, a_\nu' + a_\nu'', \dots, a_m)
+		&=
+		\det(a_1, \dots, a_\nu', \dots, a_m) +
+		\det(a_1, \dots, a_\nu'', \dots, a_m),
+		\\
+		\det(a_1, \dots, \lambda a_\nu, \dots, a_m)
+		&=
+		\lambda \det(a_1, \dots, a_\nu, \dots, a_m)
+		.
+	\end{align*}
+\end{example}
+
+\subsubsection{Свойства полилинейных отображений}
+
+Сначала лёгкая закуска: посмотрим на билинейные отображения в одномерные модули.
+
+Пусть $\phi \colon U \times V \to K$ --- билинейное отображение, а в~$U$ и~$V$ выбраны базисы
+\begin{align*}
+	\ee = (e_1, \dots, e_m) &\subset U,
+	\\
+	\bgg = (g_1, \dots, g_n) &\subset V.
+\end{align*}
+Тогда любые векторы~$u \in U$, $v \in V$ раскладываются по базису:
+\begin{align*}
+	u &=
+	\sum_{i = 1}^m u^i e_i
+	,
+	&
+	v &=
+	\sum_{j = 1}^n v^j g_j
+	,
+\end{align*}
+так что
+\begin{align*}
+	\phi(u, v) &=
+	\phi
+	\left( 
+		\sum_{i = 1}^m u^i e_i,
+		\ 
+		\sum_{j = 1}^n v^j g_j
+	\right)
+	\nlinea{=}
+	\sum_{i = 1}^m
+	\sum_{j = 1}^n
+	\phi
+	(
+		u^i e_i,
+		v^j g_j
+	)
+	\nlinea{=}
+	\sum_{i = 1}^m
+	\sum_{j = 1}^n
+	u^i\,
+	v^j\,
+	\phi
+	(e_i, g_j)
+	.
+\end{align*}
+
+
+
+Пусть $\phi \colon U \times V \to W$ --- билинейное отображение, а в~$U$, $V$ и~$W$ выбраны базисы
+\begin{align*}
+	\ee = (e_1, \dots, e_m) &\subset U,
+	\\
+	\bgg = (g_1, \dots, g_n) &\subset V,
+	\\
+	\hh = (h_1, \dots, h_k) &\subset W.
+\end{align*}
+
