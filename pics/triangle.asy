@@ -33,10 +33,10 @@ path CB = C--B;
 pen drawpen  = defaultpen;
 pen labelpen = defaultpen;
 
-// draw(triangle, drawpen);
-draw (AB, drawpen);
-draw (AC, drawpen);
-draw (CB, drawpen);
+draw(triangle, drawpen);
+// draw (AB, drawpen);
+// draw (AC, drawpen);
+// draw (CB, drawpen);
 
 
 // label("$A$", A, SW, labelpen);
