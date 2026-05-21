@@ -234,3 +234,91 @@
 % 		
 % 	\]
 % \end{remark}
+
+Итак, $V_1 \times \cdots V_m$ --- модуль над кольцом~$K$ с покомпонентными сложением и умножением на элементы из~$K$. 
+
+В частности, в нём можно выделить подмодуль и факторизовать по нему. Этим мы займёмся чуть позже.
+
+Чтобы двигаться дальше, нам понадобится понятие полилинейной функции.
+
+\subsubsection{Полилинейные функции}
+
+Напомню определения.
+
+\begin{definition}
+	Пусть~$V$ и~$W$ --- модули над кольцом~$K$. Функция~$\phi \colon V \to W$ называется \tdef{линейной}, если она уважает сложение и умножение на число: для любых~$v$, $v_1$, $v_2 \in V$ и~$k \in K$
+	\begin{align*}
+		\phi(v_1 + v_2) &= \phi(v_1) + \phi(v_2), \\
+		\phi(kv) &= k\,\phi(v).
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	Пусть~$V_1$, \dots, $V_m$, $W$ --- модули над кольцом~$K$. Функция
+	\[
+		\phi \colon V_1 \times \cdots \times V_m \to W
+	\]
+	называется \tdef{полилинейной}, если она линейна по каждому аргументу при фиксированных остальных. Иными словами, $\phi$ полилинейна, если \emph{линейны} все отображения
+	\[
+		\phi_\nu \colon V_\nu \to W,
+	\]
+	замыкающие коммутативную диаграмму
+	\[
+		\xymatrix{
+			V_1 \times \cdots \times V_m
+			\ar [r] ^-{\phi}
+			&
+			W
+			\\
+			V_\nu
+			\mathstrut
+			\ar @{-->} [ur] _-{\phi_\nu}
+			\ar @{^(->} [u] ^-{\iota_\nu}
+		}
+	\]
+	Здесь~$\iota_\nu \colon V_\nu \hookrightarrow V_1 \times \cdots \times V_m$ --- каноническое вложение в~$\nu$-ую компоненту:
+	\[
+		\iota_\nu(v_\nu) := (0, \dots, 0, v_\nu, 0, \dots, 0)
+		.
+	\]
+	В записи формулами это выглядит так:
+	\begin{align*}
+		\bigl(
+			\phi \circ \iota_\nu 
+		\bigr)
+		(v_\nu)
+		&=
+		\phi_\nu (v_\nu)
+		\\
+		\phi
+		(0, \dots, 0, v_\nu, 0, \dots, 0)
+		&=
+		\phi_\nu (v_\nu)
+		.
+	\end{align*}
+\end{definition}
+Интуитивно,~$\phi_\nu$ получается, если в наборе
+\[
+	(v_1, \dots, v_{\nu-1}, v_\nu, v_{\nu+1}, \dots, v_m)
+\]
+зафиксировать все элементы, кроме $\nu$-го, и сказать, что
+\begin{align*}
+	\phi(\dots, v_\nu' + v_\nu'', \dots) &=
+	\phi(\dots, v_\nu', \dots) +
+	\phi(\dots, v_\nu'', \dots)
+	,
+	k \cdot \phi(\dots, v_\nu, \dots) &=
+	\phi(\dots, kv_\nu, \dots)
+	.
+\end{align*}
+
+% Итак, with some abuse of the notation, функция~$\phi$ называется \tdef{полилинейной}, если для любого~$\nu$
+% \begin{align*}
+% 	\phi(
+% 		\noatt{v_1, \dots, v_{\nu-1}},
+% 		v_\nu' + v_\nu'',
+% 		\noatt{v_{\nu+1}, \dots, v_{m}}
+% 	)
+% 	&=
+% 
+% \end{align*}
