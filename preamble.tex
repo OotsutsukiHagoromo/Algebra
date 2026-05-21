@@ -98,3 +98,8 @@
 	% \addvspace{\bigskipamount}
 }
 
+\newcommand*{\tagalign}[1]{%
+	\refstepcounter{equation}%
+	\tag{\theequation}%
+	\label{#1}%
+}
