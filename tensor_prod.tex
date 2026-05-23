@@ -444,15 +444,17 @@
 в неизвестный нам пока модуль~$W$, которая замыкает коммутативную диаграмму
 \begin{equation}
 	\label{eq:tensor_prod:bilinear:tau:diagram}
-	\xymatrix{
-		U \times V
-		\ar [r] ^-{\phi}
-		\ar [d] _-{\tau}
-		&
-		K
-		\\
-		W
-		\ar @{-->} [ur] _-{\tphi}
+	\vcenter{
+		\xymatrix{
+			U \times V
+			\ar [r] ^-{\phi}
+			\ar [d] _-{\tau}
+			&
+			K
+			\\
+			W
+			\ar @{-->} [ur] _-{\tphi}
+		}
 	}
 \end{equation}
 то есть обладает следующим свойством: для любой \emph{билинейной} функции~$\phi$ существует \emph{линейная} функция~$\tphi$, для которой~$\phi = \tphi \circ \tau$.
