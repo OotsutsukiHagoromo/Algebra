@@ -103,3 +103,12 @@
 	\tag{\theequation}%
 	\label{#1}%
 }
+
+% basis with top index
+\newcommand*{\btop}[2]{%
+	\overset{\scriptsize (#2)}{#1}%
+}
+
+\newcommand*{\bte}[1]{%
+	\btop{e}{#1}%
+}
