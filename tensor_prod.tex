@@ -853,8 +853,40 @@
 \end{align*}
 переводящий набор~$(v_1, \dots, v_m)$ в класс эквивалентности~$[(v_1, \dots, v_m)]$. Для классов эквивалентности выполняются все условия, которые предписаны подмодулем~$R$:
 \begin{align*}
-
+	[(\dots, v_\mu' + v_\mu'', \dots)] &=
+	[(\dots, v_\mu', \dots)] +
+	[(\dots, v_\mu'', \dots)]
+	,
+	\\
+	\lambda \cdot
+	[(\dots, v_\mu, \dots)] &=
+	[(\dots, \lambda \cdot v_\mu, \dots)]
+	.
 \end{align*}
+
+\begin{definition}
+	Класс эквивалентности набора~$(v_1, \dots, v_m)$ по отношению эквивалентности~\eqref{} называется \tdef{тензорным произведением} векторов~$v_1$, \dots, $v_m$ и обозначается
+	\[
+		v_1 \otimes \cdots \otimes v_m
+		:=
+		[(v_1, \dots, v_m)]
+		.
+	\]
+\end{definition}
+
+С учётом этого обозначения соотношения~\eqref{} можно переписать в виде
+\begin{align*}
+	\cdots \otimes (v_\mu' + v_\mu'') \otimes \cdots &=
+	\cdots \otimes v_\mu' \otimes \cdots +
+	\cdots \otimes v_\mu'' \otimes \cdots
+	,
+	\\
+	\lambda \cdot
+	(\cdots \otimes v_\mu \otimes \cdots) &=
+	\cdots (\lambda \cdot v_\mu) \otimes \cdots
+	.
+\end{align*}
+
 
 
 
