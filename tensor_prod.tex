@@ -752,6 +752,8 @@
 
 Пусть~$V := V_1 \tct V_m$ наделено структурой $K$-модуля, как в~\cref{sec:module_structure_on_production}.
 
+\paragraph{По Городенцеву.}
+
 Рассмотрим свободный $K$-модуль $W$, базисом в котором будут всевозможные $n$-буквенные слова $[v_1 \cdots v_n]$, в которых в качестве $i$-ой буквы выступает произвольный вектор~$v_i \in V_i$. В этом модуле рассмотрим подмодуль~$R \leq W$, порождённый линейными комбинациями вида
 \[
 	[\cdots (\lambda u + \mu w) \cdots]
@@ -765,9 +767,94 @@
 \begin{align*}
 	V_1 \otimes \cdots \otimes V_m := W / R,
 	\\
-	v_1 \otimes \cdots \otimes v_m := [v_1 \cdots v_m] \mod{R},
+	v_1 \otimes \cdots \otimes v_m := [v_1 \cdots v_m] \pod{R},
 \end{align*}
 
+\paragraph{Более подробно.} Введём на~$V$ отношение эквивалентности, отождествляющее наборы, получающиеся друг из друга применением соотношений полилинейности:
+\begin{align*}
+	(\dots, v_\mu' + v_\mu'', \dots)
+	&\sim
+	(\dots, v_\mu', \dots) +
+	(\dots, v_\mu'', \dots),
+	\\
+	\lambda \cdot
+	(\dots, v_\mu, \dots)
+	&\sim
+	(\dots, \lambda \cdot v_\mu, \dots)
+\end{align*}
+для каждого $\mu \in [m]$.
+
+А далее положим
+\[
+	V_1 \otimes \cdots \otimes V_m
+	:=
+	\frac{
+		V_1 \times \cdots \times V_m
+	}{
+		\left<
+			\begin{aligned}
+				(\dots, v_\mu' + v_\mu'', \dots)
+				&\sim
+				(\dots, v_\mu', \dots) +
+				(\dots, v_\mu'', \dots),
+				\\
+				\lambda \cdot
+				(\dots, v_\mu, \dots)
+				&\sim
+				(\dots, \lambda \cdot v_\mu, \dots)
+			\end{aligned}
+		\right>
+	}
+	.
+\]
+
+Эквивалентно, введём в~$V_1 \tct V_m$ подмодуль~$R$, порождённый соотношениями
+\begin{align*}
+	(\dots, v_\mu' + v_\mu'', \dots)
+	&\sim
+	(\dots, v_\mu', \dots) +
+	(\dots, v_\mu'', \dots),
+	\\
+	\lambda \cdot
+	(\dots, v_\mu, \dots)
+	&\sim
+	(\dots, \lambda \cdot v_\mu, \dots)
+	,
+\end{align*}
+и положим
+\[
+	V_1 \otimes \cdots \otimes V_m
+	:=
+	\frac{
+		V_1 \times \cdots \times V_m
+	}{R}
+	.
+\]
+
+Построенное так факторпространство называется \tdef{тензорным произведением} пространств~$V_1$, \dots, $V_m$.
+
+Рассмотрим гомоморфизм факторизации
+\begin{align*}
+	\pi
+	\colon
+	V_1 \times \cdots \times V_m
+	&\to
+	\frac{
+		V_1 \times \cdots \times V_m
+	}{R}
+	=:
+	V_1 \otimes \cdots \otimes V_m
+	\colon
+	\\
+	(v_1, \dots, v_m)
+	&\mapsto
+	[(v_1, \dots, v_m)]
+	,
+\end{align*}
+переводящий набор~$(v_1, \dots, v_m)$ в класс эквивалентности~$[(v_1, \dots, v_m)]$. Для классов эквивалентности выполняются все условия, которые предписаны подмодулем~$R$:
+\begin{align*}
+
+\end{align*}
 
 
 
