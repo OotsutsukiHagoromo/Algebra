@@ -1392,6 +1392,7 @@ $}%
 можно задать указанием их значений~$f(v_1 \oto v_m)$ на разложимых тензорах, а затем по линейности продолжить~$f$ на произвольные тензоры. Разложимые тензоры порождают $V_1 \oto V_m$, так что это продолжение единственно, если существует. Из этого следует, что все линейные соотношения, которые существуют между разложимыми тензорами вида~$v_1 \oto v_m$, в том числе соотношения полилинейности, должны выполняться и между их образами вида~$f(v_1 \oto v_m)$ в модуле~$W$. Но все такие соотношения линейно порождаются соотношениями полилинейности, так что имеет место
 
 \begin{lemma}
+	\label{lem:tensor_prod:linear_map:existing}
 	Линейное отображение
 	\begin{align*}
 		f \colon
@@ -1403,7 +1404,7 @@ $}%
 		&\mapsto
 		f(v_1 \oto v_m)
 	\end{align*}
-	существует, если и только если векторы~$f(v_1, \dots, v_m) \in W$ полилинейно зависят от векторов~$v_i \in V_i$.
+	существует, если и только если векторы~$f(v_1 \oto v_m) \in W$ полилинейно зависят от векторов~$v_i \in V_i$.
 \end{lemma}
 
 Пусть есть набор $K$-линейных отображений $f_i \colon V_i \to W_i$ между произвольными модулями над коммутативным кольцом~$K$. Тогда тензор
@@ -1418,8 +1419,89 @@ $
 	\in
 	V_1 \tct V_m
 $.
-Поэтому
+Поэтому по~\cref{lem:tensor_prod:linear_map:existing} существует единственное линейное отображение
+\begin{align*}
+	f_1 \oto f_m
+	\colon
+	V_1 \oto V_m
+	&\to
+	W_1 \oto W_m
+	\colon
+	\\
+	v_1 \oto v_m
+	&\mapsto
+	f_1(u_1)
+	\oto
+	f_m(u_m)
+	,
+\end{align*}
+которое называется \tdef{тензорным произведением} отображений~$f_i \colon V_i \to W_i$.
 
+\subsubsection{Тензорное произведение матриц}
+
+Пусть в векторных пространствах~$V$ и~$W$ заданы базисы
+\begin{align*}
+	\ee &= (e_1, \dots, e_n) \subset V,
+	\\
+	\hh &= (h_1, \dots, h_m) \subset W.
+\end{align*}
+Пусть также заданы линейные операторы~$\phi \colon V \to V$ и $\psi \colon W \to W$. Если~$\phi$ в базисе~$\ee$ имеет матрицу~$A = (a_j^i)$, а~$\psi$ в базисе~$\hh$ --- матрицу~$B = (b^k_\ell)$, то матрица оператора~$\phi \otimes \psi \colon V \otimes W \to V \otimes W$ в базисе~$\ee \otimes \hh := \set*{e_\mu \otimes h_\nu}$ имеет размеры~$(mn) \times (mn)$; её элементы нумеруются парами чисел~$(\alpha, \beta) \in [n] \times [m]$. Эта матрица называется \tdef{кронекеровым}, или \tdef{тензорным произведением} матриц~$A$ и~$B$ и обозначается~$A \otimes B$. Так как
+\begin{align*}
+	(\phi \otimes \psi)(e_\mu \otimes h_\nu) &=
+\phi(e_\mu) \otimes \psi(h_\nu)
+	\nlinea{=}
+	\left( 
+		\sum_{i = 1}^n
+			a_{\mu}^i\,e_i
+	\right)
+	\otimes
+	\left( 
+		\sum_{j = 1}^m
+			b_{\nu}^j\,h_j
+	\right)
+	\nlinea{=}
+	\sum_{i = 1}^n
+	\sum_{j = 1}^m
+		a_\mu^i\,
+		b_\nu^j
+		\cdot
+		e_i \otimes h_j
+	,
+\end{align*}
+в пересечении строки номер~$(i, j)$ и столбца номер~$(\mu, \nu)$ матрицы~$A \otimes B$ стоит произведение~$a_\mu^i\,b_\nu^j$. Если упорядочить базис~$\ee \otimes \hh$ отношением
+\[
+	e_1 \otimes h_1
+	\leq
+	\cdots
+	\leq
+	e_1 \otimes h_m
+	\leq
+	e_2 \otimes h_1
+	\leq
+	\cdots
+	\leq
+	e_2 \otimes h_m
+	\leq
+	\cdots
+	\leq
+	e_n \otimes h_1
+	\leq
+	\cdots
+	\leq
+	e_n \otimes h_m
+	,
+\]
+то матрица~$A \otimes B$ имеет блочный вид:
+\[
+	A \otimes B
+	=
+	\begin{pmatrix}
+		a_1^1 B & \dots & a_m^1 B \\
+		\hdotsfor{3} \\
+		a_1^n B & \dots & a_m^n B \\
+	\end{pmatrix}
+	.
+\]
 
 \begin{definition}
 	\tdef{Тензорным}, или \tdef{кронекеровым произведением} матриц
