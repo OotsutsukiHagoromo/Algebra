@@ -895,9 +895,140 @@
 
 \begin{remark}
 	Тензорные 
-\end{remark}<++>
+\end{remark}
 
 
+\subsection{Базис в тензорном произведении}
+
+\begin{lemma}
+	Если~$V_1$, \dots, $V_m$ --- свободные $K$-модули, то и~$\tVm$ --- тоже свободный модуль.
+\end{lemma}
+\begin{proof}
+	Если~$V_1$, \dots, $V_m$ свободны, то в каждом из них есть базис
+	\[
+		\btop{\ee}{\nu} =
+		(\bte{\nu}_1, \dots, \bte{\nu}_{n_\nu})
+		\subset V_\nu
+		.
+	\]
+	Тогда векторы, из которых состоит разложимый тензор
+	\[
+		v_1 \oto v_m \in V_1 \oto V_m
+		,
+	\]
+	можно разложить по базису:
+	\begin{align*}
+		v_1 \oto v_m &=
+		\left( 
+			\sum_{i_1 = 1}^{n_1}
+				v_1^{i_1}
+				\,
+				\bte{1}_{i_1}
+		\right)
+		\oto
+		\left( 
+			\sum_{i_m = 1}^{n_m}
+				v_m^{i_m}
+				\,
+				\bte{m}_{i_m}
+		\right)
+		\nlinea{=}
+		\sum_{i_1 = 1}^{n_1}
+		\cdots
+		\sum_{i_m = 1}^{n_m}
+			v_1^{i_1}
+			\cdots
+			v_m^{i_m}
+			\cdot
+			\bte{1}_{i_1}
+			\oto
+			\bte{m}_{i_m}
+		,
+	\end{align*}
+	или, короче,
+	\begin{align*}
+		v_1 \oto v_m &=
+		\bigl( 
+			v_1^{i_1}
+			\,
+			\bte{1}_{i_1}
+		\bigr)
+		\oto
+		\bigl( 
+			v_m^{i_m}
+			\,
+			\bte{m}_{i_m}
+		\bigr)
+		\nlinea{=}
+		v_1^{i_1}
+		\cdots
+		v_m^{i_m}
+		\cdot
+		\bte{1}_{i_1}
+		\oto
+		\bte{m}_{i_m}
+		,
+	\end{align*}
+	так что любой разложимый тензор представляется в виде линейной комбинации тензорных произведений
+	$\bte{1}_{i_1}
+		\oto
+	\bte{m}_{i_m}$
+	базисных векторов единственным образом. Поэтому всевозможные такие наборы образуют базис.%
+\end{proof}
+
+\subsection{Канонические изоморфизмы}
+
+Рассмотрим три $K$-модуля $U$, $V$ и~$W$. Несмотря на то, что пространства $U \otimes V$ и $V \otimes U$ не равны друг другу (у них могут не совпадать подлежащие множества), можно установить \emph{естественный изоморфизм} между ними (естественность означает, что этот изоморфизм не зависит от выбора базиса).
+
+Имеются следующие естественные изоморфизмы:
+\begin{align}
+	U \otimes V
+	&\cong
+	V \otimes U;
+	\label{eq:tensor_prod:natural_isomorphisms:commutativity}
+	\\
+	U \otimes (V \otimes W)
+	&\cong
+	(U \otimes V) \otimes W;
+	\label{eq:tensor_prod:natural_isomorphisms:associativity}
+	\\
+	U \otimes (V \oplus W)
+	&\cong
+	(U \otimes V) \oplus 
+	(U \otimes W).
+	\label{eq:tensor_prod:natural_isomorphisms:distributivity}
+\end{align}
+Первый из них говорит о коммутативности, второй --- об ассоциативности (скобки в произведении можно не писать), третий --- о дистрибутивности тензорного умножения относительно прямой суммы.
+
+\begin{remark}
+	Несмотря на наличие изоморфизма~\eqref{eq:tensor_prod:natural_isomorphisms:commutativity} \emph{неверно} говорить, что $u \otimes v = v \otimes u$ при $u \in U$, $v \in V$.
+	Иными словами, изоморфизмы~\eqref{eq:tensor_prod:natural_isomorphisms:commutativity}--\eqref{eq:tensor_prod:natural_isomorphisms:distributivity} не устанавливают равенств.
+\end{remark}
+
+\subsection{Тензорные степени}
+
+Пусть теперь~$V$ --- произвольный (возможно, свободный) $K$-модуль, а $V^*$ --- модуль, двойственный ему, то есть как множество состоящий из линейных функционалов:
+\[
+	V^* :=
+	\Hom_{\Lin}(V, K) :=
+	\set{\phi \colon V \to K}{\text{$\phi$ --- линейная}}
+\]
+
+Пусть $\ee = (e_1, \dots, e_n) \subset V$ --- базис в~$V$, а $\ee^* = (e^1, \dots, e^n) \subset V^*$ --- дуальный ему базис в~$V^*$. Напомню, что дуальность означает, что~$e^i(e_j) = \delta^i_j$.
+
+Рассмотрим тензорное произведение вида
+\[
+	V^{\otp} \otimes (V^*)^{\otq}
+	:=
+	\underbrace{
+		V \oto V
+	}_{p}
+	\otimes
+	\underbrace{
+		V^* \oto V^*
+	}_{q}
+	.
+\]
 
 
 
