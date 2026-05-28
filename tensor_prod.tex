@@ -1126,11 +1126,222 @@ $ --- координаты тензора~$T$, а по наборам
 		\xi^1 \oto \widehat{\xi^j} \oto \xi^q
 		,
 	\]
-	в котором $j$-ый ковектор~$\xi^j$ подействовал на~$i$-ый вектор~$v_i$.
+	в котором $j$-ый ковектор~$\xi^j$ подействовал на~$i$-ый вектор~$v_i$. Крышками обозначены сомножители, которых нет.
 \end{definition}
+Результирующий тензор будет иметь валентность~$\binom{p-1}{q-1}$.
 
-Оператор свёртки по паре индексов
+Оператор свёртки по паре индексов~$(\attvec{i}, \attcovec{j}) \in \attvec{[p]} \times \attcovec{[q]}$ обозначим~$\conv{\attvec{i}}{\attcovec{j}}$, так как индекс~$\attvec{i}$ у~вектора пишется сверху, а индекс~$\attcovec{j}$ у~ковектора пишется сверху.
 
+\begin{example}
+	Найдём свёртку
+	\[
+		\conv{2}{1}
+		\bigl(
+			(e_1 + 3e_2 - 2e_3) \otimes
+			(-e_1 + 2e_2) \otimes
+			(e^1 + 3e^3) \otimes
+			(e^4 - e^1)
+		\bigr)
+	\]
+	по паре индексов~$(2, 1)$.
+
+	Номер вектора равен~$2$, номер ковектора --- $1$. Значит, нужно свернуть второй вектор
+	$
+		(-e_1 + 2e_2)
+	$
+	и первый ковектор
+	$
+		(e^1 + 3e^3)
+	$:
+	\begin{align*}
+		\braket{e^1 + 3e^3}{-e_1 + 2e_2} &=
+		\braket{e^1}{-e_1} +
+		\braket{e^1}{2e_2} +
+		\braket{3e^3}{-e_1} +
+		\braket{3e^3}{2e_2}
+		\nlinea{=}
+		-
+		\braket{e^1}{e_1} +
+		2\,
+		\braket{e^1}{e_2}
+		-3\,
+		\braket{e^3}{e_1} +
+		6\,
+		\braket{e^3}{e_2}
+		\nlinea{=}
+		\delta_1^1 +
+		2\,
+		\delta^1_2
+		-3\,
+		\delta^3_1 +
+		6\,
+		\delta^3_2
+		\nlinea{=}
+		1
+		.
+	\end{align*}
+	Тогда результат будет иметь вид
+	\[
+		1
+		\cdot
+		(e_1 + 3e_2 - 2e_3) \otimes
+		(e^4 - e^1)
+		.
+	\]
+\end{example}
+
+\subsection{Линейные операторы как тензоры}
+
+\begin{lemma}
+	Пусть $U$ и~$W$ --- векторные пространства. Тогда элементы~$U^* \otimes W$ --- это линейные операторы вида~$\phi \colon U \to W$.
+\end{lemma}
+\begin{proof}
+	Действительно, пусть $\xi \otimes w \in U^* \otimes W$. Тогда можно описать действие этого тензора на вектор~$u \in U$ так:
+	\[
+		(\xi \otimes w)(u) :=
+		\xi(u)\,w.
+	\]
+	В обозначениях Дирака это выглядит так:
+	$\bra{\xi} \in U^*$, $\ket{w} \in W$,
+	\[
+		(\ket{w} \otimes \bra{\xi})(\ket{u}) :=
+		\ket{w} \cdot \braket{\xi}{u}
+		.
+	\]
+	Из вектора~$\ket{u} \in U$ получился вектор~$\braket{\xi}{u} \ket{w} \in W$.
+\end{proof}
+
+Можно задаться вопросом: как выглядит матрица оператора~$\xi \otimes w \in U^* \otimes W$?
+
+Выберем базисы:
+\begin{align*}
+	\ee &= (e_1, \dots, e_n) \subset U,
+	\\
+	\ee^* &= (e^1, \dots, e^n) \subset U^*,
+	\\
+	\hh &= (h_1, \dots, h_m) \subset W,
+\end{align*}
+где $\ee^*$ --- дуальный к~$\ee$.
+
+Будем записывать координаты векторов в столбик, а координаты ковекторов --- в строчку:
+\begin{align*}
+	u &=
+	(e_1, \dots, e_n)
+	\Vect{u^1 \\ \dots \\ u^n}
+	=
+	\ee
+	\Vect{u^1 \\ \dots \\ u^n};
+	\\
+	\xi &=
+	\Vect{\xi_1, & \dots, & \xi_n}
+	\Vect{e^1 \\ \dots \\ e^n}
+	\\
+	w &=
+	(h_1, \dots, h_m)
+	\Vect{w^1 \\ \dots \\ w^m}
+	=
+	\hh
+	\Vect{w^1 \\ \dots \\ w^m}
+	.
+\end{align*}
+Тогда, c одной стороны,
+\begin{align*}
+	\xi \otimes w &=
+	\left( 
+		\sum_{i = 1}^n
+			\xi_i\,e^i
+	\right)
+	\otimes
+	\left( 
+		\sum_{j = 1}^m
+			w^j\,h_j
+	\right)
+	\nlinea{=}
+	\sum_{i = 1}^n
+	\sum_{j = 1}^m
+		\xi_i\,
+		w^j\,
+		e^i
+		\otimes
+		h_j
+	.
+\end{align*}
+С другой, если воспользоваться матричным формализмом, видно, что если перемножить матрицы координат
+\begin{equation}
+\label{eq:tensor_prod:xi_w_coordinates}
+	\Vect{\xi_1, & \dots, & \xi_n}
+	\quad
+	\text{и}
+	\quad
+	\Vect{w^1 \\ \dots \\ w^m}
+\end{equation}
+вот так:
+\[
+	\Vect{w^1 \\ \dots \\ w^m}
+	\Vect{\xi_1, & \dots, & \xi_n}
+	,
+\]
+то в строке номер~$i$ и столбце номер~$j$ будет элемент~$w^j\,\xi_i$ --- как раз тот, который появляется в разложении~$\xi \otimes w$ по базису $\ee \otimes \hh$. Поэтому если добавить базисы~$\ee^*$ и~$\hh$, то получим верное равенство:
+\begin{align*}
+	\xi \otimes w &=
+	\left[ 
+		\Vect{\xi_1, & \dots, & \xi_n}
+		\Vect{e^1 \\ \dots \\ e^n}
+	\right]
+	\otimes
+	\left[ 
+		\Vect{h_1, & \dots, & h_m}
+		\Vect{w^1 \\ \dots \\ w^m}
+	\right]
+	\nlinea{=}
+	\Vect{h_1, & \dots, & h_m}
+	\left[ 
+		\Vect{w^1 \\ \dots \\ w^m}
+		\otimes
+		\Vect{\xi_1, & \dots, & \xi_n}
+	\right]
+	\Vect{e^1 \\ \dots \\ e^n}
+	\nlinea{=}
+	\Vect{h_1, & \dots, & h_m}
+	\left[ 
+		\Vect{
+			w^1
+			\cdot
+			\Vect{\xi_1, & \dots, & \xi_n}
+			\\
+			\hbox to \wd0 {\dotfill}
+			\\
+			w^m
+			\cdot
+			\Vect{\xi_1, & \dots, & \xi_n}
+		}
+	\right]
+	\Vect{e^1 \\ \dots \\ e^n}
+	\nlinea{=}
+	\Vect{h_1, & \dots, & h_m}
+	\begin{pmatrix}
+		\xi_1\,w^1 &
+		\cdots &
+		\xi_n\,w^1
+		\\
+		\hdotsfor{3}
+		\\
+		\xi_1\,w^m &
+		\cdots &
+		\xi_n\,w^m
+	\end{pmatrix}
+	\Vect{e^1 \\ \dots \\ e^n}
+	\nlinea{=}
+	\sum_{i = 1}^n
+	\sum_{j = 1}^m
+		\xi_i\,
+		w^j\,
+		e^i
+		\otimes
+		h_j
+		.
+\end{align*}
+Матрицу в середине естественно назвать \tdef{тензорным произведением} матриц~\eqref{eq:tensor_prod:xi_w_coordinates}.
 
 
 
