@@ -20,6 +20,15 @@ then
 	mkdir -p "$outdir" 
 fi
 
+for dir in tasks theory
+do
+	if [[ ! -a "$outdir/$dir" ]]
+	then
+		mkdir -p "$outdir/$dir"
+	fi
+done
+
+
 case $1 in
 	--all)
 		do_pdflatex
