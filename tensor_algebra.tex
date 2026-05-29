@@ -42,6 +42,89 @@
 
 Тензорное умножение задаёт на~$TV$ структуру ассоциативной не обязательно коммутативной градуированной алгебры над~$K$.
 
+Если модуль $V$ свободен с базисом~$E \subset V$ (не обязательно конечным!), то базис модуля~$TV$ над~$K$ состоит из монома~$1 \in V^{\otimes 0}$ и
+\[
+	\set{e_1 \oto e_m}{
+		\begin{aligned}
+			e_i &\in E
+			\\
+			m &\in \NN
+		\end{aligned}
+	}
+\]
+--- всевозможных тензорных мономов от конечного числа базисных векторов.
+
+\begin{example}
+	Если в $V$ есть конечный базис~$(e_1, e_2, e_3)$, то базис в $TV$ --- это
+	\[
+		\set*{
+			\begin{gathered}
+				1,\ e_1,\ e_2,\ e_3,
+				\\
+				e_1 \otimes e_2,\ 
+				e_2 \otimes e_1,\   
+				e_1 \otimes e_3,\   
+				e_3 \otimes e_1,\   
+				e_2 \otimes e_3,\   
+				e_3 \otimes e_2,\   
+				\\
+				e_1 \otimes e_2 \otimes e_3,\ 
+				e_2 \otimes e_1 \otimes e_3,\ 
+				\dots
+				\\
+				\hbox to 9cm {\dotfill}
+			\end{gathered}
+		}
+		.
+	\]
+\end{example}
+
+\begin{definition}
+	Алгебра~$TV$ называется \tdef{тензорной алгеброй} модуля~$V$ или \tdef{свободной ассоциативной $K$-алгеброй, порождённой~$V$}.
+	\label{<+label+>}
+\end{definition}
+
+
+
+\begin{theorem}[универсальное свойство тензорной алгебры]
+	\label{th:tensor_algebra:universal_property_of_tensor_algebra}
+	Для любого $K$-линейного отбражения $f \colon V \to A$ в произвольную ассоциативную $K$-алгебру~$A$ существует единственный гомоморфизм $K$-алгебр $\alpha \colon TV \to A$, что $f = \alpha \circ \iota$, где
+	\begin{align*}
+		\iota \colon V &\hookrightarrow TV \colon
+		\\
+		v &\mapsto v
+	\end{align*}
+	--- каноническое вложение~$V$ в $TV$ в качестве подмодуля.
+
+	Иными словами, коммутативна диаграмма
+	\begin{equation}
+		\label{eq:tensor_prod:universal_property_of_tensor_algebra}
+		\vcenter{
+			\xymatrix{
+				TV
+				\ar @{-->} [r] ^-{\alpha}
+				&
+				A
+				\\
+				V \mathstrut
+				\ar [ur] _-{f}
+				\ar @{^(->} [u] ^-{\iota}
+			}
+		}
+	\end{equation}
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Пусть $\ee = (e_1, \dots, e_n) \subset V$ --- базис в~$V$, а $\ee^* = (e^1, \dots, e^n) \subset V^*$ --- дуальный ему базис в~$V^*$. Напомню, что дуальность означает, что~$e^i(e_j) = \delta^i_j$.
