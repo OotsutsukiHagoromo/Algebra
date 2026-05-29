@@ -6,8 +6,7 @@ do_pdflatex() {
 	pdflatex \
 		--shell-escape \
 		--output-directory "$outdir" \
-		main
-		# main.tex
+		main.tex
 }
 
 do_biblatex() {
