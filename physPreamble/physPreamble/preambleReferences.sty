@@ -1,0 +1,41 @@
+\ProvidesPackage{preambleReferences}
+
+% ================================ References =================================
+
+\RequirePackage{hyperref}	% Для ссылок
+\hypersetup{%
+	breaklinks=true,%
+	colorlinks=true,%
+	extension=pdf,%
+	urlcolor=myurlcolor,%
+	linkcolor=mylinkcolor,%
+	citecolor=myCiteColor,%
+	unicode=true,%
+	draft=false,%
+	pdfpagemode={},%
+	plainpages=false,%
+	pdfpagelabels=true,%
+	linktocpage=false,%
+%	pageanchor=true%
+}
+
+% \renewcommand*{\UrlFont}{\fontfamily{arial}\selectfont}
+% \renewcommand*{\UrlFont}{\sf}
+% \renewcommand*{\UrlFont}{\sfshape}
+\urlstyle{sf}
+
+\RequirePackage[nameinlink, russian]{cleveref}
+
+\renewcommand*{\figureautorefname}{рис.}
+\renewcommand*{\tableautorefname}{табл.}
+\crefname{theorem}{теор.}{теор.}
+\Crefname{theorem}{Теор.}{Теор.}
+\crefname{lemma}{лем.}{лем.}
+\Crefname{lemma}{Лем.}{Лем.}
+% \renewcommand*{\lemmaautorefname}{лем.}
+\newcommand*{\picref}[1]{рис.\,\ref{#1}}
+\newcommand*{\tabref}[1]{табл.\,\ref{#1}}
+\renewcommand*{\picref}[1]{\autoref{#1}}
+\renewcommand*{\tabref}[1]{\autoref{#1}}
+%\renewcommand*{\equationautorefname}{}
+

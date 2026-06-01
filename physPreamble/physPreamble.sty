@@ -1,0 +1,1103 @@
+\ProvidesPackage{physPreamble}
+
+\RequirePackage[T2A,T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[main=russian,latin,english,czech]{babel}
+\RequirePackage{indentfirst}
+\RequirePackage[intlimits]{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage[shortlabels]{enumitem}
+
+\RequirePackage{xypic}
+% \RequirePackage{tikz}
+% \usetikzlibrary{positioning}
+% \usetikzlibrary{arrows.meta}
+
+\RequirePackage{preambleColors}
+\RequirePackage{preambleReferences}
+
+\RequirePackage{booktabs}
+
+% =============================================================================
+
+% \usepackage{minted}
+
+%\RequirePackage[libertine]{newtxmath}
+% \RequirePackage[math]{pscyr}		% TODO: стандартные
+%\RequirePackage{mathtext}
+%\RequirePackage{concrete}
+
+%\RequirePackage{tikz}
+
+% «Умная» запятая: $0,2$ --- число, $0, 2$ --- перечисление
+% \RequirePackage{icomma}
+
+
+% Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+% \RequirePackage{mathtools}
+% \mathtoolsset{showonlyrefs=true}
+
+%\RequirePackage{pxfonts}
+%\RequirePackage{eulervm}
+
+%\RequirePackage{utopia}
+
+% \usepackage[math]{pscyr}
+
+% \RequirePackage{dejavu}
+% 
+% \RequirePackage[%
+% libertine
+% %	charter,
+% %	vvarbb,
+% %	%scaled=1.05
+% %	scaled=1.09
+% ]{newtxmath}
+
+%\renewcommand*{\mathrm}{\usefont{OT1}{DejaVuSerif}{m}{rm}\selectfont}
+%\renewcommand*{\mathrm}{\usefont{OMS}{DejaVuSerif}{m}{rm}\selectfont}
+
+% \DeclareMathAlphabet{\mathtud}{OT1}{tud}{m}{it}
+% \DeclareSymbolFont{DejaVuSerif}{OT1}{}{m}{it}
+% \renewcommand*{\mathrm}{\mathdjs}
+
+% % \RequirePackage[cal=boondoxo]{mathalfa}
+% 
+% % \RequirePackage[math]{pscyr}
+% \RequirePackage{dejavu}
+% \RequirePackage[charter,vvarbb,scaled=1.2]{newtxmath}
+% 
+% % \DeclareSymbolFont{operators}   {OT1}{bch} {m}{n} %
+% % \DeclareSymbolFont{letters}     {OT1}{bch} {m}{it} %
+% % \DeclareSymbolFont{letters}     {OML}{bch} {m}{it} %
+% % \DeclareSymbolFont{symbols}     {OMS}{cmr} {m}{n}
+% 
+% % \DeclareSymbolFontAlphabet{\mathrm}    {operators}
+% % \DeclareSymbolFontAlphabet{\mathnormal}{letters} %
+% % \DeclareSymbolFontAlphabet{\mathcal}   {symbols}
+% % \DeclareMathAlphabet      {\mathbf}{OT1}{bch} {bx}{n}
+% % \DeclareMathAlphabet      {\mathsf}{OT1}{cmss}{m}{n}
+% % \DeclareMathAlphabet      {\mathit}{OT1}{bch} {m}{it}
+% % \DeclareMathAlphabet      {\mathtt}{OT1}{cmtt}{m}{n}
+% 
+% % \linespread{1.09}
+% % \RequirePackage{DejaVuSerif}
+% % \RequirePackage[charter,vvarbb,scaled=1.05]{newtxmath}
+% \linespread{1.01}
+% % \RequirePackage{dejavu}
+% % \RequirePackage[math]{pscyr}
+
+% =============================================================================
+
+
+\RequirePackage{geometry}
+\RequirePackage{array}
+\RequirePackage{multicol}
+\RequirePackage{numprint}
+%\RequirePackage{enumerate}
+\RequirePackage{graphicx}
+\RequirePackage{longtable}
+%\RequirePackage{mathtext}
+%\RequirePackage{multicol}
+%\RequirePackage[]{}
+\RequirePackage{wrapfig}
+\RequirePackage{atveryend}
+\RequirePackage{csvsimple}
+%\RequirePackage{physics}
+\RequirePackage{float}
+\RequirePackage{placeins}
+
+% \RequirePackage{tcolorbox}
+% 
+% \tcbuselibrary{minted}
+% \tcbuselibrary{skins}
+% \tcbuselibrary{raster}
+% \tcbuselibrary{breakable}
+
+
+\RequirePackage{pdflscape}
+% \usepackage{lscape}
+
+% \RequirePackage[libertine]{newtxmath}		% Здесь есть крупный оператор произведения
+
+\graphicspath{{Pics/}}
+
+\newif\ifpreambleafourpaper
+\preambleafourpapertrue
+
+\newif\ifpreambleafivepaper
+\preambleafivepaperfalse
+
+\ifpreambleafourpaper
+	% TODO
+	\geometry{%
+		a4paper,
+		margin=0.9in,
+		% margin=0.7in,
+		footskip=0.4in,
+		includefoot
+	}
+\else\ifpreambleafivepaper
+	\geometry{%
+		a5paper,
+		margin=1cm,
+		includefoot
+	}
+\fi\fi
+
+%\renewcommand*{\rmdefault}{fjn}		% TODO: стандартные
+%\DeclareSymbolFont{operators}{OT1}{fjn}{m}{n}
+%\usepackage[heuristica,vvarbb,bigdelims]{newtxmath}		% TODO: раскомментировать
+
+% \RequirePackage[centerlast, footnotesize]{caption2}
+% % \RequirePackage[centerlast, small]{caption2}
+% \renewcommand*{\captionlabeldelim}{.}
+
+\usepackage{caption}
+\DeclareCaptionLabelSeparator{dot}{. }
+
+% #1 is the caption label
+% #2 is the separator
+% #3 is the text
+\DeclareCaptionFormat{mycaptionformat}{%
+	#1#2~#3%
+}
+
+% #1 is the name (pic, fig, ...)
+% #2 is the number
+\DeclareCaptionLabelFormat{mycaptionlabelformat}{%
+	#1~#2%
+}
+
+\captionsetup{%
+  %margin=1cm,%
+  margin=2\parindent,%
+  font=small,%
+  labelsep=dot,%
+	format=mycaptionformat,%
+	labelformat=mycaptionlabelformat,%
+	justification=centerlast%
+}
+
+\newlength{\picwidth}
+\setlength{\picwidth}{\linewidth}
+\newlength{\wrappicwidth}
+\setlength{\wrappicwidth}{0.4\linewidth}
+
+\newcommand{\insertfigure}[4][\picwidth]{%
+	\begin{figure}[h]
+		\centering
+		\hbox to \linewidth {%
+			\hss
+			\includegraphics[width=#1]{#2}%
+			\hss
+		}%
+		\caption{#3}
+		\label{pic:#4}
+	\end{figure}
+}
+
+\newcommand*{\insertfigureland}[4][\picwidth]{%
+		\begin{landscape}%
+			\rule{0pt}{0pt}%
+			\vfill
+			\setlength{\picwidth}{1\linewidth}%
+			\insertfigure[#1]{#2}{#3}{#4}%
+			%\par%
+			\vfill
+			\rule{0pt}{0pt}%
+		\end{landscape}%
+}
+
+\newcommand*{\insertsvg}[4]{%
+	\begin{figure}[h]
+		\centering
+		\gdef\svgwidth{\picwidth}%
+		\input{#1}%
+		\par
+		\captionof{#4}{#2}
+		\label{pic:#3}
+	\end{figure}
+}
+
+\newcommand*{\insertfigurewrap}[6][]{%
+	\begin{wrapfigure}[#1]{#3}{#2\linewidth}%
+		\centering
+		\includegraphics{#4}%
+		\caption{#5}%
+		\label{pic:#6}%
+	\end{wrapfigure}%
+}
+
+\newcommand*{\insertsvgwrap}[7][]{%
+	\begin{wrapfigure}[#1]{#3}{#2\linewidth}%
+		\centering
+		\captionsetup{type=#7}
+		%\begin{minipage}{picwidth}
+		\gdef\svgwidth{1\linewidth}%
+		\input{#4}% \end  {minipage}%
+		\par
+		%\captionof{#7}{#5}%
+		\protect\caption{#5}%
+		\label{pic:#6}%
+	\end{wrapfigure}%
+}
+
+% ================================== Шрифты ===================================
+
+% \usepackage{heuristica}
+% \usepackage[heuristica,vvarbb,bigdelims]{newtxmath}
+%	\usepackage[T1]{fontenc}
+%	\renewcommand*\oldstylenums[1]{\textosf{#1}}
+%	\RequirePackage[libertine]{newtxmath}
+
+% \usepackage{txfonts}
+% %\usepackage{mathptmx}
+% \usepackage{tempora}
+
+% \DeclareSymbolFont{T2Aletters}{\encodingdefault}{\rmdefault}{m}{it}
+
+\newif\ifpreamblefontXCharter
+\newif\ifpreamblefontTimes
+\newif\ifpreamblefontCochineal
+
+\preamblefontTimestrue
+\preamblefontXCharterfalse
+\preamblefontCochinealfalse
+
+\ifpreamblefontXCharter
+	% osf in text, lining figures in math
+	%\usepackage[scaled=.98,sups,osf]{XCharter}
+	% \usepackage[scaled=.98,sups]{XCharter}
+
+	% \usepackage[scaled=.98]{XCharter}
+
+	% inconsolata typewriter
+	\usepackage[scaled=1.04,varqu,varl]{inconsolata}
+
+	% sans serif
+	%\usepackage[type1]{cabin}
+
+	% \usepackage[cal=boondoxo]{mathalfa}
+
+	\usepackage[charter,vvarbb,scaled=1.05]{newtx}
+	\linespread{1.04}
+	\renewcommand*{\ttdefault}{\sfdefault}
+\fi
+\ifpreamblefontTimes
+	%\usepackage[libertine,vvarbb,scaled=1.05]{newtxmath}
+	\usepackage[libertinus, vvarbb, varg]{newtx}
+	% inconsolata typewriter
+	\usepackage[scaled=1.04,varqu,varl]{inconsolata}
+	\AtBeginDocument{%
+		\DeclareFontFamilySubstitution{T2A}{\scdefault}{Tempora-TLF}%
+	}
+\fi
+\ifpreamblefontCochineal
+	\usepackage[scaled=1.02]{cochineal}
+	\usepackage[cochineal,vvarbb]{newtxmath}
+\fi
+
+% ============================================================================
+
+% ===============================	Typesetting ================================
+
+\RequirePackage{tocloft}
+\RequirePackage{fnpct}
+\RequirePackage[%
+	kerning=true,
+	spacing=true,
+	protrusion=true,
+	babel=true,
+	factor=1000
+]{microtype}
+
+ \RequirePackage{enumitem}
+% \RequirePackage{enumerate}
+\RequirePackage[shortlabels]{enumitem}
+
+% =============================================================================
+
+% \usepackage{minted}
+% 
+% % \usemintedstyle{lovelace}
+% \newmintinline[code]{cpp}{breaklines,breakanywhere,style=lovelace}
+% \newmintinline[tcode]{text}{breaklines,breakanywhere,style=lovelace}
+% \newminted{cpp}{xleftmargin=\parindent, breaklines, breakanywhere, style=lovelace, autogobble, mathescape, linenos=true, tabsize=4}
+% !!! по эту  и раскомментируй следующую:
+% \newcommand*{\tcode}[1]{\textsf{#1}}
+
+% =============================================================================
+
+\RequirePackage{bm}
+
+\renewcommand*{\geq}{\geqslant}
+\renewcommand*{\leq}{\leqslant}
+\newcommand*{\Lra}{\Longrightarrow}
+\newcommand*{\np}[1]{\numprint{#1}}
+%\newcommand*{\fromto}[2]{\overline{#1,\,#2}}
+
+
+\newcommand*{\Cel}{\ensuremath{{}^{\circ} \text{C}}}
+%\newcommand*{\const}{\mathrm{const}}
+% \renewcommand*{\abs}[1]{\left|#1\right|}
+
+\newenvironment{system}{\left\{\begin{aligned}}{\end{aligned}\right.}
+\newenvironment{system*}{\left.\begin{aligned}}{\end{aligned}\right\}}
+\newenvironment{union}{\left[\begin{aligned}}{\end{aligned}\right.}
+
+\newcommand*{\labNum}{Номер работы}
+\newcommand*{\labName}{Название работы}
+\newcommand*{\dateStart}{Дата начала}
+\newcommand*{\dateFin}{\today}
+\newcommand*{\studentCourse}{4}
+\newcommand*{\studentGroup}{Б--09}%{Б--02}%{Б--05}
+\newcommand*{\studentName}{Лавникович~Р.\,В.}
+
+\newcommand*{\D}{\Delta}
+%\newcommand*{\pd}[2]{\frac{\partial #1}{\partial #2}}
+%\newcommand*{\dpd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand*{\degC}{{}^{\circ}\mathrm{C}}
+
+\makeatletter
+
+% =============================================================================
+
+% % [размер]{<}{>}{a}
+% \newcommand*{\bracketoperator}[4][]{%
+% 	\ifthenelse{\equal{#1}{}}{%
+% 		\left #2
+% 		#4%
+% 		\right #3
+% 	}{%
+% 		\csname #1l\endcsname #2
+% 		#4
+% 		\csname #1r\endcsname #3
+% 	}%
+% }
+% 
+% % [размер]{<}{|}{>}{a}{b}
+% \newcommand*{\bracketoperatorthree}[6][]{%
+% 	\ifthenelse{\equal{#1}{}}{%
+% 		\left #2
+% 		#5%
+% 		\;
+% 		\middle #3
+% 		\;
+% 		#6%
+% 		\right #4
+% 	}{%
+% 		\csname #1l\endcsname #2
+% 		#5%
+% 		\;
+% 		\csname #1m\endcsname #3
+% 		\;
+% 		#6
+% 		\csname #1r\endcsname #4
+% 	}%
+% }
+
+\RequirePackage{bracketoperator}
+
+% \newcommand*{\setsp}{\@ifstar\@setsp@one\@setsp@two}
+% \newcommand*{\@setsp@one}[1]{\ensuremath{\left< #1 \right>}}
+% \newcommand*{\@setsp@two}[2]{\ensuremath{\left< #1 \;\middle|\; #2 \right>}}
+
+% \newcommand*{\setord}{\@ifstar\@setord@one\@setord@two}
+% \newcommand*{\@setord@one}[1]{\ensuremath{\left( #1 \right)}}
+% \newcommand*{\@setord@two}[2]{\ensuremath{\left( #1 \;\middle|\; #2 \right)}}
+
+% =============================================================================
+
+\newcommand*{\isotope}[4]{#1\,{}^{#2}{\mathrm{#3}}_{#4}}
+\newcommand*{\chem}[1]{\ensuremath{\mathrm{#1}}}
+\newcommand*{\tdef}[1]{\textit{#1}}
+
+\newcommand*{\aem}{\ensuremath{\text{а.\,е.\,м.}}}
+
+\newcommand{\insertpicture}[3]{%
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.9\linewidth]{#1}
+		\caption{#2}%
+		\label{pic:#3}
+	\end{figure}
+}
+
+\newcommand{\inserttwopictures}[4]{%
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.9\linewidth]{#1}\\
+		\includegraphics[width=0.9\linewidth]{#2}
+		\caption{#3}%
+		\label{pic:#4}
+	\end{figure}
+}
+
+
+% 1: степень, если есть
+% 2: d или \partial
+% 3: функция дифференцирования
+% 4: переменная дифференцирования
+
+%\newcommand*{\@dv@print@line}[2]{#1 / #2}
+%\newcommand*{\@dv@print@frac}[2]{\cfrac{#1}{#2}}
+%
+%\newcommand*{\@dv}[4]{%
+% \ifthenelse{\equal{#1}{}}{%
+%   \@ifstar%
+%   \@dv@print@line{#2 #3}{#2 #4}%
+%   \@else
+%   \@dv@print@frac{#2 #3}{#2 #4}%
+% }{%
+%   \@ifstar%
+%   \@dv@print@line{{#2}^{#1} #3}{{#2}^{#1} #4}%
+%   \@else
+%   \@dv@print@frac{{#2}^{#1} #3}{{#2}^{#1} #4}%
+% }
+%}
+
+\newcommand*{\@dv@line}[4]{%
+  \ifthenelse{\equal{#1}{}}{%
+    #2 #3 / #2 #4%
+  }{%
+    {#2}^{#1} #3 / #2 {#4}^{#1}%
+  }%
+}
+
+\newcommand*{\@dv@frac}[4]{%
+  \ifthenelse{\equal{#1}{}}{%
+    \frac{#2 #3}{#2 #4}%
+  }{%
+    \frac{{#2}^{#1} #3}{#2 {#4}^{#1}}%
+  }%
+}
+
+\newcommand*{\pdv@line}[3][]{\@dv@line{#1}{\partial}{#2}{#3}}
+\newcommand*{\pdv@frac}[3][]{\@dv@frac{#1}{\partial}{#2}{#3}}
+\newcommand*{\ddv@line}[3][]{\@dv@line{#1}{d}{#2}{#3}}
+\newcommand*{\ddv@frac}[3][]{\@dv@frac{#1}{d}{#2}{#3}}
+
+\let\pdv=\undefined
+\newcommand*{\pdv}{
+  \@ifstar\pdv@line\pdv@frac
+}
+
+\newcommand*{\ddv}{
+  \@ifstar\ddv@line\ddv@frac
+}
+
+\newcommand*{\@fromto@}[2]{%
+  \{ #1, \dots{}, #2 \}%
+}
+
+\newcommand*{\@fromto@str}[2]{%
+  \left\{ #1, \dots{}, #2 \right\}
+}
+
+\newcommand*{\fromto}{%
+  \@ifstar\@fromto@\@fromto@str
+}
+
+\makeatother
+
+\newcommand*{\emptyrule}{\rule{0pt}{0pt}}
+\newcommand*{\ND}{\ensuremath{\text{---}}}
+
+\newcommand*{\physa}[2]{%
+	#1\ #2
+}
+\newcommand*{\physb}[4][]{%
+	\left(\np{#2} \pm \np{#3}\right)%
+	\ifthenelse{\equal{#1}{}}{}{\cdot {10}^{#1}}%
+	\ #4%
+}
+\newcommand*{\phys}[2]{\np{#1} \pm \np{#2}}
+
+\renewcommand*{\thefootnote}{\arabic{footnote})}
+
+\newcommand*{\mcols}[2][7]{\hline\multicolumn{#1}{|c|}{#2}\\\hline}
+
+\renewcommand*{\phi}{\varphi}
+\renewcommand*{\epsilon}{\varepsilon}
+\newcommand*{\eps}{\epsilon}
+% \newcommand*{\mean}[1]{\left<#1\right>}
+
+% \newcommand*{\scalProd}[2]{\left<#1, #2\right>}
+% \newcommand*{\vecProd}[2]{\left[#1, #2\right]}
+% \newcommand*{\spr}[2]{\scalProd{#1}{#2}}
+% \newcommand*{\vprod}[2]{\vecProd{#1}{#2}}
+
+% \renewcommand*{\norm}[1]{\left\|#1 \right\|}
+\renewcommand*{\vec}[1]{\bm{#1}}
+
+%\newcommand*{\abs}[1]{\left|#1\right|}
+
+% =======================================================================
+\DeclareFontFamily{OMX}{MnSymbolE}{}
+\DeclareFontShape{OMX}{MnSymbolE}{m}{n}{
+    <-6>  MnSymbolE5
+   <6-7>  MnSymbolE6
+   <7-8>  MnSymbolE7
+   <8-9>  MnSymbolE8
+   <9-10> MnSymbolE9
+  <10-12> MnSymbolE10
+  <12->   MnSymbolE12
+}{}%
+\DeclareFontShape{OMX}{MnSymbolE}{b}{n}{
+    <-6>  MnSymbolE-Bold5
+   <6-7>  MnSymbolE-Bold6
+   <7-8>  MnSymbolE-Bold7
+   <8-9>  MnSymbolE-Bold8
+   <9-10> MnSymbolE-Bold9
+  <10-12> MnSymbolE-Bold10
+  <12->   MnSymbolE-Bold12
+}{}
+\DeclareSymbolFont{mnlargesymbols}{OMX}{MnSymbolE}{m}{n}
+\SetSymbolFont{largesymbols}{bold}{OMX}{MnSymbolE}{b}{n}
+
+\DeclareMathDelimiter{\lwavy}{\mathopen}{mnlargesymbols}{'136}{mnlargesymbols}{'136}
+\DeclareMathDelimiter{\rwavy}{\mathclose}{mnlargesymbols}{'136}{mnlargesymbols}{'136}
+
+\renewcommand*{\fromto}[3][]{%
+	\bracketoperator[#1]{\lwavy}{\rwavy}{#2,\:#3}%
+}
+
+% =======================================================================
+
+\let\abs=\undefined
+\newcommand*{\abs}[2][]{%
+	\bracketoperator[#1]{|}{|}{#2}%
+}
+
+\newcommand*{\scalProd}[2]{\left<#1,\:#2\right>}
+\newcommand*{\vecProd}[2]{\left[#1,\:#2\right]}
+
+\renewcommand*{\scalProd}[3][]{%
+	\bracketoperator[#1]{<}{>}{#2,\:#3}%
+}
+
+\renewcommand*{\vecProd}[3][]{%
+	\bracketoperator[#1]{[}{]}{#2,\:#3}%
+}
+
+\let\vpr=\vecProd
+\let\spr=\scalProd
+
+\newcommand*{\R}{\mathbb{R}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\I}{\mathcal{I}}
+\newcommand*{\K}{\mathbb{K}}
+\newcommand*{\E}{\mathbb{E}}
+\newcommand*{\NN}{\mathbb{N}}
+\newcommand*{\ZZ}{\mathbb{Z}}
+\newcommand*{\QQ}{\mathbb{Q}}
+\newcommand*{\RR}{\mathbb{R}}
+\newcommand*{\PP}{\mathbb{P}}
+\newcommand*{\CC}{\mathbb{C}}
+\newcommand*{\KK}{\mathbb{K}}
+\newcommand*{\EE}{\mathbb{E}}
+\newcommand*{\const}{\mathrm{const}}
+\newcommand*{\Mat}{\mathrm{Mat}}
+
+\newcommand*{\makeTitlepage}[4][]{%
+	\renewcommand*{\labNum}{#2}
+	\renewcommand*{\labName}{#3}
+	\renewcommand*{\dateStart}{#4}
+	\makeTitlepageInner[#1]
+}
+
+\newcommand*{\makeTitlepageOther}[7][]{%
+	\renewcommand*{\labNum}{#2}
+	\renewcommand*{\labName}{#3}
+	\renewcommand*{\dateStart}{#4}
+	\renewcommand*{\studentCourse}{#5}
+	\renewcommand*{\studentGroup}{#6}
+	\renewcommand*{\studentName}{#7}
+	\makeTitlepageInner[#1]
+}
+
+\newif\ifneedsdates
+\needsdatestrue
+\newif\ifneedsgroup
+\needsdatestrue
+
+\newcommand*{\makeTitlepageInner}[1][0.5\textwidth]{%
+	\hspace*{\fill}%
+	\begin{minipage}{#1}
+		\begin{tabular}{@{}l@{ }l@{}}
+			\multicolumn{2}{@{}l}{\studentName}\\
+			\multicolumn{2}{@{}l}{%
+				\studentCourse{} курс%
+				\ifneedsgroup
+					,
+					группа \studentGroup
+				\fi
+			}%
+			%\\[1\baselineskip]
+			%Отметка: \hrulefill\par
+			%\\[1\baselineskip]
+			\\
+			\ifneedsdates
+				Дата выполнения: & \dateStart \\
+				Дата составления: & \dateFin
+			\fi
+		\end{tabular}
+		\par
+		% \bigskip
+		% \hbox to \linewidth {%
+		% 	Подпись преподавателя: \hrulefill%
+		% }%
+		% \medskip
+		% \hbox to \linewidth {%
+		% 	Подпись студента: \hrulefill%
+		% }%
+	\end  {minipage}
+	\vspace{30pt}%
+	\begin{center}
+		\bfseries
+		\Large
+		Лабораторная работа
+		\ifthenelse{\equal{\labNum}{}}{}{№~\labNum}%
+		%\\[0.5\baselineskip]
+		\par
+		\medskip
+		\large
+		<<\labName>>
+	\end  {center}%
+	\vspace{30pt}%
+}
+	
+\newenvironment{mytable}[1]{%
+		\par\noindent\centering
+		\begin{longtable}{#1}
+			%\ifthenelse{\equal{#1}{{}}}{}{\caption{#1}}\\
+			%\endfirsthead
+}{%
+		\end  {longtable}
+}
+
+\newcommand*{\makeSignature}{%
+	\vfill
+	\vspace*{30pt}
+	\noindent
+	Дата составления: \dateFin
+	\hfill
+	Подпись студента: \hbox to 3cm {\hrulefill}
+}
+
+\renewcommand*{\makeSignature}{\relax}
+
+\newcommand*{\hhm}[1]{%
+	#1%
+}
+
+\newcommand*{\nlinea}[1]{#1 {} \\ {} &#1}
+\newcommand*{\nline}[1]{#1 {} \\ {} #1}
+\newcommand*{\Vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
+		
+\newcommand*{\supp}{\mathop{\mathrm{supp}}}
+
+\renewcommand*{\Re}{\mathop{\mathrm{Re}}}
+\renewcommand*{\Im}{\mathop{\mathrm{Im}}}
+%\AtBeginDocument{\fontsize{14pt}{16.8pt}\selectfont\relax}
+% \AtEndDocument{\makeSignature}
+%\AtVeryEndDocument{\makeSignature}
+
+% =============================================================================
+
+\newlength{\betweenmeta}
+\setlength{\betweenmeta}{\medskipamount}
+
+\newenvironment*{metablock}{%
+	\par%
+	\addvspace{\medskipamount}%
+}{%
+	\par%
+	\addvspace{\medskipamount}%
+}
+
+\newenvironment*{metaquestion}[1]{%
+	\begin{metablock}%
+		\textbf{#1.}\ %
+}{%
+	\end{metablock}%
+}
+
+\newcommand*{\metaname}{}
+\newcommand*{\metanametext}{}
+\newcommand*{\metaadditionaltext}{}
+
+\newcommand*{\makemetaquestion}[2]{%
+	\newenvironment*{#1}{%
+		\begin{metaquestion}{#2}%
+	}{%
+		\end{metaquestion}%
+	}%
+}
+
+\newcommand*{\makemetaquestionsmalltext}[2]{%
+	\newenvironment*{#1}{%
+		\begingroup
+		\footnotesize
+		\begin{metaquestion}{#2}%
+	}{%
+		\end{metaquestion}%
+		\endgroup
+	}%
+}
+
+\makemetaquestionsmalltext{question}{Вопрос}
+\makemetaquestionsmalltext{exercise}{Задача}
+\makemetaquestionsmalltext{exercize}{Задача}
+\makemetaquestionsmalltext{exersize}{Задача}
+\makemetaquestionsmalltext{task}{Задача}
+\makemetaquestionsmalltext{note}{Замечание}
+\makemetaquestion{statement}{Утверждение}
+\makemetaquestion{proposition}{Утверждение}
+\makemetaquestion{definition}{Определение}
+%\makemetaquestion{solution}{Решение}
+\makemetaquestion{remark}{Замечание}
+%\makemetaquestion{answer}{Ответ}
+
+\newcounter{theorem}[section]
+\renewcommand*{\thetheorem}{\arabic{section}.\arabic{theorem}}
+
+\newenvironment{metatheorem}[2][]{%
+	\refstepcounter{theorem}%
+	\begin{metablock}%
+		{\bfseries
+			#2~\thetheorem
+			\ifthenelse{\equal{#1}{}}{}{ (#1)}%
+		.}\ %
+		\slshape%
+}{%
+		\par\normalfont
+	\end{metablock}%
+}
+
+\newcommand*{\makemetatheorem}[2]{%
+	\renewcommand*{\metaname}{#1}%
+	\renewcommand*{\metanametext}{#2}%
+	\makemetatheorembuild
+	\renewcommand*{\metaname}{}%
+	\renewcommand*{\metanametext}{}%
+}
+
+% \newcommand*{\makemetatheorembuild}{%
+% 	\newenvironment*{\metaname}[1][]{%
+% 		\begin{metatheorem}[##1]{\metanametext}%
+% 	}{%
+% 		\end{metatheorem}%
+% 	}%
+% }
+
+% \makemetatheorem{theorem}{Теорема}
+% \makemetatheorem{lemma}{Лемма}
+% \makemetatheorem{corrolary}{Следствие}
+
+\newenvironment*{theorem}[1][]{%
+	\begin{metatheorem}[#1]{Теорема}%
+}{%
+	\end{metatheorem}%
+}%
+
+\newenvironment*{lemma}[1][]{%
+	\begin{metatheorem}[#1]{Лемма}%
+}{%
+	\end{metatheorem}%
+}%
+
+\newenvironment*{corrolary}[1][]{%
+	\begin{metatheorem}[#1]{Следствие}%
+}{%
+	\end{metatheorem}%
+}%
+
+% =============================================================================
+
+\definecolor{proofcolorb}{HTML}{9B2226}
+\definecolor{proofcolore}{HTML}{0A9396}
+
+\colorlet{attOne}{proofcolorb}
+\colorlet{attTwo}{proofcolore}
+
+% \definecolor{proofcolorb}{HTML}{000000}
+% \definecolor{proofcolore}{HTML}{000000}
+
+\newcommand*{\prooftextb}{Непон}
+\newcommand*{\prooftexte}{Пон}
+
+\newcommand*{\proofbox}[2]{%
+  \colorbox{#2}{%
+		\color{white}%
+    \scriptsize
+    \scshape
+    #1%
+  }%
+}
+
+% \newcommand*{\proofb}{\ensuremath{\blacktriangleleft}\ }
+% \newcommand*{\proofe}{\ensuremath{\blacktriangleright}}
+
+% \newcommand*{\proofb}{\proofbox{\prooftextb}{proofcolorb}}
+% \newcommand*{\proofe}{\proofbox{\prooftexte}{proofcolore}}
+
+\newcommand*{\proofb}{\textcolor{proofcolorb}{$\blacktriangleleft$}}
+\newcommand*{\proofe}{\textcolor{proofcolore}{$\blacktriangleright$}}
+
+\newif\ifmanualendtag
+\manualendtagfalse
+
+\newenvironment{proofinner}{%
+	\addvspace{\medskipamount}%
+	\par
+	\indent
+	\makebox[0pt][r]{\proofb\ }%
+	\ignorespaces
+}{%
+	\ifhmode\unskip\fi
+	\ifmanualendtag\else
+		\ \proofe
+	\fi
+	\par
+	\addvspace{\medskipamount}%
+}
+
+\newenvironment*{proof}{%
+	\manualendtagfalse
+	\begin{proofinner}%
+}{%
+	\end{proofinner}%
+}
+
+\newenvironment*{proofm}{%
+	\manualendtagtrue
+	\begin{proofinner}%
+}{%
+	\end{proofinner}%
+}
+
+%\newcommand*{\proofmark}{\tag*{$\blacktriangleright$}}
+\newcommand*{\proofmark}{\tag*{\proofe}}
+
+% =============================================================================
+
+\let\savediv=\div
+\renewcommand*{\div}{\operatorname{div}}
+
+\newcommand*{\suchthat}{%
+	\;\mathrel{\vdash}\;%
+}
+
+\newcommand*{\holds}{\suchthat}
+
+\renewcommand*{\gcd}[1]{%
+	\mathop{\text{НОД}}%
+	\left( #1 \right)
+}
+\renewcommand*{\nok}[1]{%
+	\mathop{\text{НОК}}%
+	\left( #1 \right)
+}
+
+\newcommand*{\sgn}{\mathop{\mathrm{sgn}}}
+
+\newcommand*{\shd}[3][]{%
+	\bracketoperator[#1]{\{}{\}}{#2,\:#3}%
+}
+
+\newcommand*{\opspan}{\mathop{\mathrm{span}}\nolimits}
+
+\newenvironment{determ}{%
+	\left|\begin{matrix}%
+}{%
+	\end{matrix}\right|%
+}
+
+\newcommand*{\Alpha}{\mathrm{A}}
+\newcommand*{\Beta}{\mathrm{B}}
+
+\newcommand*{\bra}[2][]{\bracketoperator{\langle}{\rvert}{#2}}
+\newcommand*{\ket}[2][]{\bracketoperator{\lvert}{\rangle}{#2}}
+
+\newcommand*{\braket}[3][]{%
+	\ifthenelse{\equal{#1}{}}{%
+		\left\langle
+		#2%
+		\middle|
+		#3
+		\right\rangle
+	}{%
+		\csname #1l\endcsname \langle
+		#2
+		\csname #1m\endcsname \mid
+		#3
+		\csname #1r\endcsname \rangle
+	}%
+}
+
+\newcommand*{\braopket}[4]{%
+	\ifthenelse{\equal{#1}{}}{%
+		\left\langle
+		#2%
+		\middle\mid
+		#3
+		\middle\mid
+		#4
+		\right\rangle
+	}{%
+		\csname #1l\endcsname \langle
+		#2
+		\csname #1m\endcsname \mid
+		#3
+		\csname #1m\endcsname \mid
+		#4
+		\csname #1r\endcsname \rangle
+	}%
+}
+
+\let\braket=\undefined
+\newcommand*{\braket}[3][]{%
+	\bracketoperatorthree[#1]{<}{|}{>}{#2}{#3}%
+}
+
+\newcommand*{\bracket}[4][]{%
+	\bracketoperatorfour[#1]{<}{|}{|}{>}{#2}{#3}{#4}%
+}
+
+\newcommand*{\conj}[1]{\overline{#1}}
+
+\AtBeginDocument{\allowdisplaybreaks}
+
+\newenvironment{example}{%
+	\addvspace{\medskipamount}%
+	\par
+	\textbf{Пример.}
+}{%
+	\par
+	\addvspace{\medskipamount}%
+}
+
+% \newcommand*{\textstars}{%
+% 	\[*\ *\ *\]%
+% 	\par
+% }
+
+\newlength{\textstarsverticallength}
+%\setlength{\textstarsverticallength}{1em minus 0.3em}
+%\setlength{\textstarsverticallength}{%
+%	2.0ex
+%	%plus  1ex
+%	%minus 1\baselineskip
+%}
+\setlength{\textstarsverticallength}{0.79\baselineskip}
+
+\newcommand*{\textstars}{%
+	\begingroup
+		\setlength{\parskip}{0pt}%
+		\setlength{\parindent}{0pt}%
+		\par
+		\addpenalty{10000}%
+		\addvspace{\textstarsverticallength}%
+		\vbox{%
+			%\hbox{%
+			%	\rule{\textstarsverticallength}{\textstarsverticallength}%
+			%}
+			\hbox to \linewidth {%
+				\hfill
+				\raisebox{0pt}[0pt][0pt]{%
+					%\ensuremath{-\ *\ *\ *\ -}%
+					\ensuremath{*\ *\ *}%
+				}%
+				\hfill
+			}%
+			%\hbox{%
+			% \rule{\textstarsverticallength}{\textstarsverticallength}%
+			%}%
+		}%
+		\par
+		%\addpenalty{10000}%
+		\addvspace{\textstarsverticallength}%
+		%\vspace{\textstarsverticallength}%
+	\endgroup
+}
+\newcommand*{\vbracketleft}[3]{%
+	\raisebox{#2}{$\left#1\vphantom{\rule{0pt}{#3}}\right.$\!}
+}
+\newcommand*{\vbracketright}[3]{%
+	\raisebox{#2}{\!$\left.\vphantom{\rule{0pt}{#3}}\right#1$}
+}
+
+
+\newcommand*{\pdvb}[4][]{%
+	\bound[#1]{
+		\pdv{#2}{#3}
+	}_{#4}
+}
+
+\newcommand*{\dpdvb}[4][]{%
+	\bound[#1]{
+		\displaystyle
+		\pdv{#2}{#3}
+	}_{#4}
+}
+
+\newcommand*{\jcb}[4]{%
+	\pdv{\left( #1, #2 \right)}{\left( #3, #4 \right)}%
+}
+
+\newcommand*{\jcbd}[4]{%
+	\abs{%
+		\jcb{#1}{#2}{#3}{#4}%
+	}%
+}
+
+\newcommand*{\jcbdfull}[4]{%
+	\left|
+	\begin{matrix}
+		\displaystyle
+		\pdvb{#1}{#3}{#4} & 
+		\displaystyle
+		\pdvb{#1}{#4}{#3} 
+		\\
+		\displaystyle
+		\pdvb{#2}{#3}{#4} &
+		\displaystyle
+		\pdvb{#2}{#4}{#3}
+	\end{matrix}
+	\right|
+}
+
+\newcommand{\att}[1]{{\color{CornellRed}#1}}
+
+\newcommand*{\decr}[1]{%
+	\underline{#1}%
+}
+
+\newcommand*{\incr}[1]{%
+	\overline{#1}%
+}
+
+\newenvironment{addition}{%
+	\par
+	\bigskip
+	\small
+}{%
+	\normalfont
+	\par
+	\bigskip
+}
+
+\newif\ifresetequations
+\resetequationstrue
+\ifresetequations
+	\makeatletter
+	\@addtoreset{equation}{section}
+	\renewcommand*{\theequation}{\thesection.\arabic{equation}}
+	\makeatother
+\fi
+
+% vim:ts=2:sw=2

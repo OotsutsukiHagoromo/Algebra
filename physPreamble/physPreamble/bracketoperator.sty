@@ -1,0 +1,158 @@
+\ProvidesPackage{bracketoperator}
+
+\newif\ifmyautobracketmodes
+\myautobracketmodesfalse
+
+\newif\ifaddspace
+\addspacetrue
+ 
+\newcommand*{\myleftbracketmode}  {\relax}
+\newcommand*{\mymiddlebracketmode}{\relax}
+\newcommand*{\myrightbracketmode} {\relax}
+
+\newcommand*{\setmybracketmodes}[1]{%
+	\ifthenelse{\equal{#1}{}}{%
+		\addspacetrue
+		\myautobracketmodestrue
+	}{%
+		\addspacefalse
+		\myautobracketmodesfalse
+	}%
+	%
+	% \ifmyautobracketmodes
+	% 	\let\myleftbracketmode={\csname left\endcsname}
+	% 	\let\mymiddlebracketmode={\csname middle\endcsname}
+	% 	\let\myrightbracketmode={\csname right\endcsname}
+	% \else
+	% 	\let\myleftbracketmode={\csname #1l\endcsname}
+	% 	\let\mymiddlebracketmode={\csname #1m\endcsname}
+	% 	\let\myrightbracketmode={\csname #1r\endcsname}
+	% \fi
+	\renewcommand*{\myleftbracketmode}{%
+		\ifmyautobracketmodes
+			\csname left\endcsname
+		\else
+			\expandafter
+			\expandafter
+			\csname #1l\endcsname
+		\fi
+	}%
+	%
+	\renewcommand*{\mymiddlebracketmode}{%
+		\ifmyautobracketmodes
+			\csname middle\endcsname
+		\else
+			\expandafter
+			\expandafter
+			\csname #1m\endcsname
+		\fi
+	}%
+	%
+	\renewcommand*{\myrightbracketmode}{%
+		\ifmyautobracketmodes
+			\csname right\endcsname
+		\else
+			\expandafter
+			\expandafter
+			\csname #1r\endcsname
+		\fi
+	}%
+}
+
+\newcommand*{\mybraceaddspace}{\;}
+
+%       1  2  3  4
+% [размер]{<}{>}{a}
+\newcommand*{\bracketoperator}[4][]{%
+	\setmybracketmodes{#1}
+	\myleftbracketmode#2
+		#4
+	\myrightbracketmode#3
+}
+
+%       1  2  3  4  5  6
+% [размер]{<}{|}{>}{a}{b}
+\newcommand*{\bracketoperatorthree}[6][]{%
+	\setmybracketmodes{#1}
+	\myleftbracketmode#2
+		#5%
+	\ifaddspace\mybraceaddspace\fi
+	\mymiddlebracketmode#3%
+	\ifaddspace\mybraceaddspace\fi
+		#6%
+	\myrightbracketmode#4
+}
+
+%       1  2  3  4  5  6  7  8
+% [размер]{<}{|}{|}{>}{a}{b}{c}
+\newcommand*{\bracketoperatorfour}[8][]{%
+	\setmybracketmodes{#1}
+	\myleftbracketmode#2
+		#6%
+	\ifaddspace \mybraceaddspace \fi
+	\mymiddlebracketmode#3
+	\ifaddspace \mybraceaddspace \fi
+		#7
+	\ifaddspace \mybraceaddspace \fi
+	\mymiddlebracketmode#4
+	\ifaddspace \mybraceaddspace \fi
+		#8%
+	\myrightbracketmode#5
+}
+
+% =============================================================================
+
+\let\norm=\undefined
+\newcommand*{\norm}[2][]{%
+	\bracketoperator[#1]{\|}{\|}{#2}%
+}
+
+\newcommand*{\mean}[2][]{%
+	\bracketoperator[#1]{\langle}{\rangle}{#2}%
+}
+
+\newcommand*{\bound}[2][]{%
+	\bracketoperator[#1]{.}{|}{#2}%
+}
+
+% =============================================================================
+
+\newcommand*{\set}{\@ifstar\@set@one\@set@two}
+\newcommand*{\@set@one}[2][]{%
+	\ensuremath{%
+		\bracketoperator[#1]{\{}{\}}{#2}%
+	}%
+}
+\newcommand*{\@set@two}[3][]{%
+	\ensuremath{%
+		\bracketoperatorthree[#1]{\{}{|}{\}}{#2}{#3}%
+	}%
+}
+
+
+\newcommand*{\setsp}{\@ifstar\@setsp@one\@setsp@two}
+\newcommand*{\@setsp@one}[2][]{%
+	\ensuremath{%
+		\bracketoperator[#1]{<}{>}{#2}%
+	}%
+}
+\newcommand*{\@setsp@two}[3][]{%
+	\ensuremath{%
+		\bracketoperatorthree[#1]{<}{|}{>}{#2}{#3}%
+	}%
+}
+
+\newcommand*{\spset}{\setsp}
+
+
+\newcommand*{\setord}{\@ifstar\@setord@one\@setord@two}
+\newcommand*{\@setord@one}[2][]{%
+	\ensuremath{%
+		\bracketoperatorthree[#1]{(}{)}{#2}%
+	}%
+}
+\newcommand*{\@setord@two}[3][]{%
+	\ensuremath{%
+		\bracketoperatorthree[#1]{(}{|}{)}{#2}{#3}%
+	}%
+}
