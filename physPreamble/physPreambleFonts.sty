@@ -1,0 +1,276 @@
+% Преамбула для отчётов по лабораторным по физике
+\ProvidesPackage{physPreamble}
+
+\RequirePackage[T2A]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[russian]{babel}
+\RequirePackage{indentfirst}
+\RequirePackage[intlimits]{amsmath}
+\RequirePackage{amssymb}
+
+%\RequirePackage[libertine]{newtxmath}
+%\RequirePackage[math]{pscyr}		% TODO: стандартные
+%\RequirePackage{mathtext}
+%\RequirePackage{concrete}
+
+%\RequirePackage{pxfonts}
+%\RequirePackage{eulervm}
+
+%\RequirePackage{utopia}
+
+% \usepackage[math]{pscyr}
+\usepackage{dejavu}
+\usepackage[charter,vvarbb,scaled=1.05]{newtxmath}
+\linespread{1.04}
+
+\RequirePackage{geometry}
+\RequirePackage{array}
+\RequirePackage{multicol}
+\RequirePackage{numprint}
+\RequirePackage{enumerate}
+\RequirePackage{graphicx}
+\RequirePackage{longtable}
+%\RequirePackage{mathtext}
+%\RequirePackage{multicol}
+%\RequirePackage[]{}
+%\DeclareSymbolFont{T2Aletters}{\encodingdefault}{\rmdefault}{m}{it}
+\RequirePackage{wrapfig}
+\RequirePackage{atveryend}
+\RequirePackage{csvsimple}
+\RequirePackage{physics}
+
+% \RequirePackage[libertine]{newtxmath}		% Здесь есть крупный оператор произведения
+
+\graphicspath{{/Pics}}
+
+\geometry{a4paper, margin=1in}
+
+\renewcommand*{\rmdefault}{fjn}		% TODO: стандартные
+%\DeclareSymbolFont{operators}{OT1}{fjn}{m}{n}
+\usepackage[heuristica,vvarbb,bigdelims]{newtxmath}		% TODO: раскомментировать
+
+\RequirePackage[centerlast, footnotesize]{caption2}
+% \RequirePackage[centerlast, small]{caption2}
+\renewcommand*{\captionlabeldelim}{.}
+
+%	\usepackage{heuristica}
+% \usepackage[heuristica,vvarbb,bigdelims]{newtxmath}
+%	\usepackage[T1]{fontenc}
+%	\renewcommand*\oldstylenums[1]{\textosf{#1}}
+%	\RequirePackage[libertine]{newtxmath}
+
+\RequirePackage{bm}
+
+\renewcommand*{\geq}{\geqslant}
+\renewcommand*{\leq}{\leqslant}
+\newcommand*{\Lra}{\Longrightarrow}
+\newcommand*{\np}[1]{\numprint{#1}}
+\newcommand*{\fromto}[2]{\overline{#1,\,#2}}
+\newcommand*{\picref}[1]{рис.~\ref{#1}}
+\newcommand*{\tabref}[1]{табл.~\ref{#1}}
+\newcommand*{\Cel}{\ensuremath{{}^{\circ} C}}
+\newcommand*{\const}{\mathrm{const}}
+\renewcommand*{\abs}[1]{\left|#1\right|}
+
+\newenvironment{system}{\left\{\begin{aligned}}{\end{aligned}\right.}
+\newenvironment{system*}{\left.\begin{aligned}}{\end{aligned}\right\}}
+\newenvironment{union}{\left[\begin{aligned}}{\end{aligned}\right.}
+
+\newcommand*{\labNum}{Номер работы}
+\newcommand*{\labName}{Название работы}
+\newcommand*{\dateStart}{Дата начала}
+\newcommand*{\dateFin}{\today}
+\newcommand*{\studentCourse}{2}
+\newcommand*{\studentGroup}{Б--02}%{Б--05}
+\newcommand*{\studentName}{Лавникович~Р.~В.}
+
+\newcommand*{\D}{\Delta}
+%\newcommand*{\pd}[2]{\frac{\partial #1}{\partial #2}}
+%\newcommand*{\dpd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand*{\degC}{{}^{\circ}\mathrm{C}}
+
+\makeatletter
+
+\newcommand*{\set}{\@ifstar\@set@one\@set@two}
+\newcommand*{\@set@one}[1]{\ensuremath{\left\{ #1 \right\}}}
+\newcommand*{\@set@two}[2]{\ensuremath{\left\{ #1 \;\middle|\; #2 \right\}}}
+
+\newcommand*{\setsp}{\@ifstar\@setsp@one\@setsp@two}
+\newcommand*{\@setsp@one}[1]{\ensuremath{\left< #1 \right>}}
+\newcommand*{\@setsp@two}[2]{\ensuremath{\left< #1 \;\middle|\; #2 \right>}}
+
+\newcommand*{\spset}{\setsp}
+
+% 1: степень, если есть
+% 2: d или \partial
+% 3: функция дифференцирования
+% 4: переменная дифференцирования
+
+%\newcommand*{\@dv@print@line}[2]{#1 / #2}
+%\newcommand*{\@dv@print@frac}[2]{\cfrac{#1}{#2}}
+%
+%\newcommand*{\@dv}[4]{%
+% \ifthenelse{\equal{#1}{}}{%
+%   \@ifstar%
+%   \@dv@print@line{#2 #3}{#2 #4}%
+%   \@else
+%   \@dv@print@frac{#2 #3}{#2 #4}%
+% }{%
+%   \@ifstar%
+%   \@dv@print@line{{#2}^{#1} #3}{{#2}^{#1} #4}%
+%   \@else
+%   \@dv@print@frac{{#2}^{#1} #3}{{#2}^{#1} #4}%
+% }
+%}
+
+\newcommand*{\@dv@line}[4]{%
+  \ifthenelse{\equal{#1}{}}{%
+    #2 #3 / #2 #4%
+  }{%
+    {#2}^{#1} #3 / #2 {#4}^{#1}%
+  }%
+}
+
+\newcommand*{\@dv@frac}[4]{%
+  \ifthenelse{\equal{#1}{}}{%
+    \frac{#2 #3}{#2 #4}%
+  }{%
+    \frac{{#2}^{#1} #3}{#2 {#4}^{#1}}%
+  }%
+}
+
+\newcommand*{\pdv@line}[3][]{\@dv@line{#1}{\partial}{#2}{#3}}
+\newcommand*{\pdv@frac}[3][]{\@dv@frac{#1}{\partial}{#2}{#3}}
+\newcommand*{\ddv@line}[3][]{\@dv@line{#1}{d}{#2}{#3}}
+\newcommand*{\ddv@frac}[3][]{\@dv@frac{#1}{d}{#2}{#3}}
+
+\newcommand*{\pdv}{
+  \@ifstar\pdv@line\pdv@frac
+}
+
+\newcommand*{\ddv}{
+  \@ifstar\ddv@line\ddv@frac
+}
+
+\newcommand*{\@fromto@}[2]{%
+  \{ #1, \dots{}, #2 \}%
+}
+
+\newcommand*{\@fromto@str}[2]{%
+  \left\{ #1, \dots{}, #2 \right\}
+}
+
+\newcommand*{\fromto}{%
+  \@ifstar\@fromto@\@fromto@str
+}
+
+\makeatother
+
+\newcommand*{\emptyrule}{\rule{0pt}{0pt}}
+\newcommand*{\ND}{\ensuremath{\text{---}}}
+
+\newcommand*{\physa}[2]{%
+	#1\ #2
+}
+\newcommand*{\physb}[4][]{%
+	\left(\np{#2} \pm \np{#3}\right)%
+	\ifthenelse{\equal{#1}{}}{}{\cdot {10}^{#1}}%
+	\ #4%
+}
+\newcommand*{\phys}[2]{\np{#1} \pm \np{#2}}
+
+\renewcommand*{\thefootnote}{\arabic{footnote})}
+
+\newcommand*{\mcols}[2][7]{\hline\multicolumn{#1}{|c|}{#2}\\\hline}
+
+\renewcommand*{\phi}{\varphi}
+\renewcommand*{\epsilon}{\varepsilon}
+\newcommand*{\eps}{\epsilon}
+\newcommand*{\mean}[1]{\left<#1\right>}
+
+\newcommand*{\scalProd}[2]{\left<#1, #2\right>}
+\newcommand*{\vecProd}[2]{\left[#1, #2\right]}
+\newcommand*{\spr}[2]{\scalProd{#1}{#2}}
+\newcommand*{\vprod}[2]{\vecProd{#1}{#2}}
+
+\renewcommand*{\norm}[1]{\left\|#1 \right\|}
+\renewcommand*{\vec}[1]{\bm{#1}}
+
+\newcommand*{\R}{\mathbb{R}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\R}{\mathbb{R}}
+\newcommand*{\I}{\mathcal{I}}
+\newcommand*{\K}{\mathbb{K}}
+\newcommand*{\E}{\mathbb{E}}
+\newcommand*{\NN}{\mathbb{N}}
+\newcommand*{\ZZ}{\mathbb{Z}}
+\newcommand*{\QQ}{\mathbb{Q}}
+\newcommand*{\RR}{\mathbb{R}}
+\newcommand*{\PP}{\mathbb{P}}
+\newcommand*{\CC}{\mathbb{C}}
+\newcommand*{\KK}{\mathbb{K}}
+\newcommand*{\EE}{\mathbb{E}}
+\newcommand*{\const}{\mathrm{const}}
+\newcommand*{\Mat}{\mathrm{Mat}}
+
+\newcommand*{\makeTitlepage}[3]{%
+	\renewcommand*{\labNum}{#1}
+	\renewcommand*{\labName}{#2}
+	\renewcommand*{\dateStart}{#3}
+	\makeTitlepageInner
+}
+
+\newcommand*{\makeTitlepageOther}[5]{%
+	\renewcommand*{\labNum}{#1}
+	\renewcommand*{\labName}{#2}
+	\renewcommand*{\dateStart}{#3}
+	%\newcommand*{\studentCourse}{1}
+	\renewcommand*{\studentGroup}{#4}
+	\renewcommand*{\studentName}{#5}
+	\makeTitlepageInner
+}
+
+\newcommand*{\makeTitlepageInner}{%
+	\hspace*{\fill}%
+	\begin{minipage}{0.33\textwidth}
+		\dateStart\\
+		\studentName\\
+		\studentCourse{} курс, группа \studentGroup\\[1\baselineskip]
+		Отметка: \hrulefill\par
+	\end  {minipage}
+	\vspace{30pt}
+	\begin{center}
+		\bfseries
+		\Large
+		Лабораторная работа №~\labNum\\[0.5\baselineskip]
+		\large
+		<<\labName>>
+	\end  {center}
+}
+	
+\newenvironment{mytable}[1]{%
+		\par\noindent\centering
+		\begin{longtable}{#1}
+			%\ifthenelse{\equal{#1}{{}}}{}{\caption{#1}}\\
+			%\endfirsthead
+}{%
+		\end  {longtable}
+}
+
+\newcommand*{\makeSignature}{%
+	\vfill
+	\vspace*{30pt}
+	\noindent
+	Дата составления: \dateFin
+	\hfill
+	Подпись студента: \hbox to 3cm {\hrulefill}
+}
+
+%\AtBeginDocument{\fontsize{14pt}{16.8pt}\selectfont\relax}
+\AtEndDocument{\makeSignature}
+%\AtVeryEndDocument{\makeSignature}
