@@ -231,6 +231,50 @@
 	Поэтому размерность пространства~$\Lambda^k V$ --- это число способов выбрать такие наборы индексов, то есть в точности число способов выбрать~$k$ элементов из~$n$ без учёта порядка. А это и есть~$\binom{n}{k}$.
 \end{proof}
 
+\begin{corrolary}
+	$\dim{\Lambda V} = 2^n$, где $n = \dim V$.
+\end{corrolary}
+\begin{proofm}
+	Так как
+	\[
+		\Lambda V =
+		\bigoplus_{k \geq 0}
+		\Lambda^k V
+		,
+	\]
+	а $\Lambda^k V = 0$ при $k > n$, то
+	\[
+		\Lambda V =
+		\bigoplus_{k = 0}^n
+		\Lambda^k V
+		,
+	\]
+	так что
+	\[
+		\dim{\Lambda V} =
+		\sum_{k = 0}^n
+			\dim{\Lambda^k V}
+		=
+		\sum_{k = 0}^n
+			\binom{n}{k}
+		=
+		2^n
+		.
+		\proofmark
+	\]
+\end{proofm}
+
+\begin{remark}
+	Последнее равенство можно получить, рассмотрев разложение по биному Ньютона суммы~$1 + 1$:
+	\[
+		2^n = (1 + 1)^n =
+		\sum_{k = 0}^n
+			\binom{n}{k}
+			\cdot 1^k \cdot 1^{n-k}
+		.
+	\]
+\end{remark}
+
 \section{Грассманова алгебра ковекторов}
 
 Пусть $V$ --- свободный $K$-модуль (не обязательно конечномерный) с базисом~$E \subset V$. Рассмотрим 
