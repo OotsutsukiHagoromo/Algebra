@@ -1,4 +1,4 @@
 [submodule "physPreamble"]
-    path = physPreamble
-		url = git@github.com:OotsutsukiHagoromo/physPreamble.git
-    branch = algebra
+	path = physPreamble
+	url = git@github.com:OotsutsukiHagoromo/physPreamble.git
+	branch = algebra
