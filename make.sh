@@ -22,9 +22,9 @@ fi
 
 for dir in tasks theory
 do
-	if [[ ! -a "$outdir/$dir" ]]
+	if [[ ! -a "$outdir/parts/$dir" ]]
 	then
-		mkdir -p "$outdir/$dir"
+		mkdir -p "$outdir/parts/$dir"
 	fi
 done
 
